@@ -104,6 +104,34 @@ namespace ConsoleApp8
 
             Console.WriteLine("------------------------------");
 
+            Console.WriteLine("請輸入搜尋科目功能(輸入完成按Enter):");
+            string str搜尋科目 = Console.ReadLine();
+            bool is有這科目 = false;
+                
+            str搜尋科目 = Console.ReadLine();
+                
+            for (int k = 0; k <= array科目名稱.GetUpperBound(0); k += 1)
+                
+            {
+                    
+                if (array科目名稱[k] == str搜尋科目)
+                    {
+                        Console.WriteLine("有此科目:" + array科目名稱[k] + ", index" + k);
+                        is有這科目 = true;
+                        break;
+                    }
+                
+            }
+
+                
+            if (!is有這科目)
+                
+            {
+
+                Console.WriteLine("找不到這科目");
+               
+            }
+
 
             Console.WriteLine("------------------------------");
             Console.WriteLine("按下任意鍵結束");
