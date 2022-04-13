@@ -1,0 +1,7 @@
+C:\Users\iii\Desktop\000\上課\練習\L01\L01\bin\Debug\L01.exe.config
+C:\Users\iii\Desktop\000\上課\練習\L01\L01\bin\Debug\L01.exe
+C:\Users\iii\Desktop\000\上課\練習\L01\L01\bin\Debug\L01.pdb
+C:\Users\iii\Desktop\000\上課\練習\L01\L01\obj\Debug\L01.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\000\上課\練習\L01\L01\obj\Debug\L01.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\000\上課\練習\L01\L01\obj\Debug\L01.exe
+C:\Users\iii\Desktop\000\上課\練習\L01\L01\obj\Debug\L01.pdb
