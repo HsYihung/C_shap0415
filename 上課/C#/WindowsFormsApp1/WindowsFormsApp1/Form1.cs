@@ -27,6 +27,8 @@ namespace WindowsFormsApp1
             Console.WriteLine("整數補零: {0:D8}", 1234);// 整數補零到八位
 
             Console.WriteLine("現在時間: {0}", System.DateTime.Now);
+
+
             Console.WriteLine("{0:d}", DateTime.Now);
             Console.WriteLine("{0:D}", DateTime.Now);
             Console.WriteLine("{0:F}", DateTime.Now);
@@ -37,6 +39,8 @@ namespace WindowsFormsApp1
             System.Windows.Forms.MessageBox.Show("歡迎使用本程式");
             MessageBox.Show("Windows Form App 開發", "標題" , MessageBoxButtons.YesNoCancel, MessageBoxIcon.Exclamation);
 
+            lbl標題.Text = "Super好喝自動販賣機";
+            lbl回應訊息.Text = "請選擇您要購買的飲料";
 
         }
 
@@ -63,11 +67,9 @@ namespace WindowsFormsApp1
             lbl回應訊息.Text = "您選擇了奶茶, 請投入  30 元";
         }
 
-        private void btn可樂_Click(object sender, EventArgs e)
+        private void btnCoke_Click(object sender, EventArgs e)
         {
             lbl回應訊息.Text = "您選擇了可樂, 請投入  15 元";
         }
-
-
     }
 }

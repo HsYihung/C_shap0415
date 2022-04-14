@@ -34,7 +34,7 @@ namespace WindowsFormsApp1
             this.btn紅茶 = new System.Windows.Forms.Button();
             this.btn綠茶 = new System.Windows.Forms.Button();
             this.btn奶茶 = new System.Windows.Forms.Button();
-            this.btn可樂 = new System.Windows.Forms.Button();
+            this.btn_coke = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl標題
@@ -94,17 +94,17 @@ namespace WindowsFormsApp1
             this.btn奶茶.UseVisualStyleBackColor = false;
             this.btn奶茶.Click += new System.EventHandler(this.btn奶茶_Click);
             // 
-            // btn可樂
+            // btn_coke
             // 
-            this.btn可樂.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btn可樂.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn可樂.Location = new System.Drawing.Point(482, 353);
-            this.btn可樂.Name = "btn可樂";
-            this.btn可樂.Size = new System.Drawing.Size(150, 60);
-            this.btn可樂.TabIndex = 5;
-            this.btn可樂.Text = "可樂";
-            this.btn可樂.UseVisualStyleBackColor = false;
-            this.btn可樂.Click += new System.EventHandler(this.btn可樂_Click);
+            this.btn_coke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_coke.Font = new System.Drawing.Font("微軟正黑體", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btn_coke.Location = new System.Drawing.Point(482, 353);
+            this.btn_coke.Name = "btn_coke";
+            this.btn_coke.Size = new System.Drawing.Size(150, 60);
+            this.btn_coke.TabIndex = 5;
+            this.btn_coke.Text = "可樂";
+            this.btn_coke.UseVisualStyleBackColor = false;
+            this.btn_coke.Click += new System.EventHandler(this.btnCoke_Click);
             // 
             // Form1
             // 
@@ -112,7 +112,7 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(644, 452);
-            this.Controls.Add(this.btn可樂);
+            this.Controls.Add(this.btn_coke);
             this.Controls.Add(this.btn奶茶);
             this.Controls.Add(this.btn綠茶);
             this.Controls.Add(this.btn紅茶);
@@ -133,7 +133,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btn紅茶;
         private System.Windows.Forms.Button btn綠茶;
         private System.Windows.Forms.Button btn奶茶;
-        private System.Windows.Forms.Button btn可樂;
+        private System.Windows.Forms.Button btn_coke;
     }
 }
 
