@@ -1,0 +1,7 @@
+C:\Users\iii\Desktop\C_shap\上課\作業\pratice3\pratice3\obj\Debug\pratice3.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\pratice3\pratice3\obj\Debug\pratice3.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\pratice3\pratice3\bin\Debug\pratice3.exe.config
+C:\Users\iii\Desktop\C_shap\上課\作業\pratice3\pratice3\bin\Debug\pratice3.exe
+C:\Users\iii\Desktop\C_shap\上課\作業\pratice3\pratice3\bin\Debug\pratice3.pdb
+C:\Users\iii\Desktop\C_shap\上課\作業\pratice3\pratice3\obj\Debug\pratice3.exe
+C:\Users\iii\Desktop\C_shap\上課\作業\pratice3\pratice3\obj\Debug\pratice3.pdb

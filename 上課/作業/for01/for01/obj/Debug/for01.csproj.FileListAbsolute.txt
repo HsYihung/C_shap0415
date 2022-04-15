@@ -1,0 +1,14 @@
+C:\Users\iii\Desktop\C_shap\上課\練習\for01\for01\obj\Debug\for01.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\C_shap\上課\練習\for01\for01\obj\Debug\for01.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\C_shap\上課\練習\for01\for01\bin\Debug\for01.exe.config
+C:\Users\iii\Desktop\C_shap\上課\練習\for01\for01\bin\Debug\for01.exe
+C:\Users\iii\Desktop\C_shap\上課\練習\for01\for01\bin\Debug\for01.pdb
+C:\Users\iii\Desktop\C_shap\上課\練習\for01\for01\obj\Debug\for01.exe
+C:\Users\iii\Desktop\C_shap\上課\練習\for01\for01\obj\Debug\for01.pdb
+C:\Users\iii\Desktop\C_shap\上課\作業\for01\for01\bin\Debug\for01.exe.config
+C:\Users\iii\Desktop\C_shap\上課\作業\for01\for01\bin\Debug\for01.exe
+C:\Users\iii\Desktop\C_shap\上課\作業\for01\for01\bin\Debug\for01.pdb
+C:\Users\iii\Desktop\C_shap\上課\作業\for01\for01\obj\Debug\for01.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\for01\for01\obj\Debug\for01.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\for01\for01\obj\Debug\for01.exe
+C:\Users\iii\Desktop\C_shap\上課\作業\for01\for01\obj\Debug\for01.pdb
