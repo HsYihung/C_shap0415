@@ -1,0 +1,10 @@
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\bin\Debug\forms000.exe.config
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\bin\Debug\forms000.exe
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\bin\Debug\forms000.pdb
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\obj\Debug\forms000.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\obj\Debug\forms000.Form1.resources
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\obj\Debug\forms000.Properties.Resources.resources
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\obj\Debug\forms000.csproj.GenerateResource.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\obj\Debug\forms000.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\obj\Debug\forms000.exe
+C:\Users\iii\Desktop\C_shap\上課\作業\forms000\forms000\obj\Debug\forms000.pdb
