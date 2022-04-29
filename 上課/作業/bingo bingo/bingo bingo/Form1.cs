@@ -66,51 +66,43 @@ namespace bingo_bingo
         private void btnBet10_Click(object sender, EventArgs e)
         {
             lotteType = 10;
-            Array.Clear(betArray,0,10);
-            lblBetNumber.Text = "";
+            lotteClear();
         }
 
         private void btnBet9_Click(object sender, EventArgs e)
         {
             lotteType = 9;
-            Array.Clear(betArray, 0, 10);
-            lblBetNumber.Text = "";
+            lotteClear();
         }
 
         private void btnBet8_Click(object sender, EventArgs e)
         {
             lotteType = 8;
-            Array.Clear(betArray, 0, 10);
-            lblBetNumber.Text = "";
+            lotteClear();
         }
 
         private void btnSingle_Click(object sender, EventArgs e)
         {
             lotteType = 11;
-            Array.Clear(betArray, 0, 10);
-            lblBetNumber.Text = "";
+            lotteClear();
         }
 
         private void btnEven_Click(object sender, EventArgs e)
         {
             lotteType = 12;
-            Array.Clear(betArray, 0, 10);
-            lblBetNumber.Text = "";
+            lotteClear();
         }
 
         private void btnBig_Click(object sender, EventArgs e)
         {
             lotteType = 13;
-            Array.Clear(betArray, 0, 10);
-            lblBetNumber.Text = "";
+            lotteClear();
         }
 
         private void btnSmall_Click(object sender, EventArgs e)
         {
             lotteType = 14;
-            Array.Clear(betArray, 0, 10);
-            lblBetNumber.Text = "";
-            lblLottoNumbers.Text = "";
+            lotteClear();
         }
 
         private void bntLottery_Click(object sender, EventArgs e)
@@ -132,10 +124,22 @@ namespace bingo_bingo
                 switch (lotteType)
                 {
                     case 11:
-
+                        int singleNumber = 20 - winEven();
+                        if(singleNumber>=13)
+                        {
+                            lblWinning.Text= $"單號數量{singleNumber}個 中獎了";
+                        }
                         break;
                     case 12:
-
+                        int evenNumber = winEven();
+                        if (evenNumber >= 13)
+                        {
+                            lblWinning.Text = $"雙號數量{evenNumber}個 中獎了";
+                        }
+                        else
+                        {
+                            lblWinning.Text = $"雙號數量{evenNumber}個 沒有中獎";
+                        }
                         break;
                     case 13:
 
@@ -162,6 +166,7 @@ namespace bingo_bingo
 
                         break;
                 }
+                lotteType = 0;
             }
         }
        
@@ -225,6 +230,43 @@ namespace bingo_bingo
             }
             lblWinning.Text =string.Format($"超級號號:{supLotteNumber:D2}\n中獎號碼:{winNumber}\n中了{myWinning}個號碼") ;
             return myWinning;
+        }
+        int winEven()
+        {
+            int MyEvenNumber = 0;
+
+            for (int i = 0; i < lotteArray.Length; i++)
+            {
+                if(lotteArray[i]%2 == 0)
+                {
+                    MyEvenNumber++;
+                }
+
+            }
+
+            return MyEvenNumber;
+        }
+        int winSize()
+        {
+            int myBigNumber = 0;
+            for(int i = 0; i < lotteArray.Length; i++)
+            {
+                if (lotteArray[i] > 40)
+                {
+                    myBigNumber++;
+                }
+            }
+
+            return myBigNumber;
+        }
+
+        void lotteClear()
+        {
+            Array.Clear(betArray, 0, 10);
+            Array.Clear(lotteArray, 0, 20);
+            lblBetNumber.Text = "";
+            lblLottoNumbers.Text = "";
+            lblWinning.Text = "";
         }
     }
 }

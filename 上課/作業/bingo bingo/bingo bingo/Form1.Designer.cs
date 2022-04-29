@@ -239,7 +239,7 @@ namespace bingo_bingo
             // bntLottery
             // 
             this.bntLottery.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.bntLottery.Location = new System.Drawing.Point(105, 598);
+            this.bntLottery.Location = new System.Drawing.Point(105, 568);
             this.bntLottery.Name = "bntLottery";
             this.bntLottery.Size = new System.Drawing.Size(134, 42);
             this.bntLottery.TabIndex = 18;
