@@ -1,0 +1,10 @@
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\bin\Debug\bingo bingo.exe.config
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\bin\Debug\bingo bingo.exe
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\bin\Debug\bingo bingo.pdb
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\obj\Debug\bingo bingo.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\obj\Debug\bingo_bingo.Form1.resources
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\obj\Debug\bingo_bingo.Properties.Resources.resources
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\obj\Debug\bingo bingo.csproj.GenerateResource.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\obj\Debug\bingo bingo.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\obj\Debug\bingo bingo.exe
+C:\Users\iii\Desktop\C_shap\上課\作業\bingo bingo\bingo bingo\obj\Debug\bingo bingo.pdb
