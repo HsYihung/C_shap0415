@@ -12,12 +12,12 @@ namespace bingo_bingo
 {
     public partial class Form1 : Form
     {
-        int lotteType = 0;
+        //int lotteType = 0;
         int lotteTypeStar = 0;
-        int lotteLength = 0;
+        int lotteTypeEven = 0;
+        int lotteTypeSize = 0;
         int[] betArray;
         int[] lotteArray;
-        int x = 0;
         int supLotteNumber = 0;
 
         public Form1()
@@ -33,175 +33,355 @@ namespace bingo_bingo
 
         private void btnBet_Click(object sender, EventArgs e)
         {
-
-
-            if (lotteType >= 8 && x < lotteType && lotteType <= 10)
+            if (lotteTypeStar == 0)
             {
-                if (betConfirm(txtBetNuber.Text))
+                MessageBox.Show("未選擇投注星數");
+                return;
+            }
+            int x = 0;
+            bool betError = false;
+            if (betConfirm(x, txtBetNuber1.Text))
+            {
+                betError = true;
+                txtBetNuber1.Text = null;
+                
+            }
+            x++;
+            if (betConfirm(x, txtBetNuber2.Text))
+            {
+                betError = true;
+                txtBetNuber2.Text = null;
+                
+            }
+            x++;
+            if (betConfirm(x, txtBetNuber3.Text))
+            {
+                betError = true;
+                txtBetNuber3.Text = null;
+                
+            }
+            x++;
+            if (betConfirm(x, txtBetNuber4.Text))
+            {
+                betError = true;
+                txtBetNuber4.Text = null;
+                
+            }
+            x++;
+            if (betConfirm(x, txtBetNuber5.Text))
+            {
+                betError = true;
+                txtBetNuber5.Text = null;
+                
+            }
+            x++;
+            if (betConfirm(x, txtBetNuber6.Text))
+            {
+                betError = true;
+                txtBetNuber6.Text = null;
+                
+            }
+            x++;
+            if (betConfirm(x, txtBetNuber7.Text))
+            {
+                betError = true;
+                txtBetNuber7.Text = null;
+                
+            }
+            x++;
+            if (betConfirm(x, txtBetNuber8.Text))
+            {
+                betError = true;
+                txtBetNuber8.Text = null;
+                
+            }
+            x++;
+            if (lotteTypeStar >= 9)
+            {
+                if (betConfirm(x, txtBetNuber9.Text))
                 {
-                    betArray[x] = Convert.ToInt32(txtBetNuber.Text);
-                    lblBetNumber.Text += $"{txtBetNuber.Text.PadLeft(2, '0')} ";
-                    x += 1;
+                    betError = true;
+                    txtBetNuber9.Text = null;
+                    
+                }
+                x++;
+                if (lotteTypeStar == 10)
+                {
+                    if (betConfirm(x, txtBetNuber10.Text))
+                    {
+                        betError = true;
+                        txtBetNuber10.Text = null;
+                        
+                    }
                 }
             }
-            else if(lotteType > 100)
+            if(betError)
             {
-                MessageBox.Show("超過投注上限");
+                Array.Clear(betArray, 0, 10);
+                x = 0;
+                MessageBox.Show("重複輸入,請重新輸入");
+                return;
             }
-            else if (lotteType > 10 )
+            foreach(int i in betArray)
             {
-                MessageBox.Show("所選擇玩法不需要投注號碼");
+                if (i!=0) 
+                {
+                    lblBetNumber.Text += string.Format($"{i:D2} ");
+                }
             }
-            else if (lotteType == 0)
-            {
-                MessageBox.Show("尚未選擇玩法");
-            }           
-            if(x == lotteType )
-            {
-                lotteType += 100;
-            }
-            txtBetNuber.Clear();
+            lotteTypeStar += 100;
+            x = 0;
+            btnBet.Enabled = false;
+            btnLottery.Enabled = true;
         }
 
         private void btnBet10_Click(object sender, EventArgs e)
         {
-            lotteType = 10;
-            lotteClear();
+            lotteTypeStar = 10;
+            btnBet10.Enabled = false;
+            btnBet9.Enabled = true;
+            btnBet8.Enabled = true;
+            txtBetNuber9.Enabled = true;
+            txtBetNuber10.Enabled = true;
+            btnBet.Enabled = true;
+            lblBetNumber.Text = "";
         }
 
         private void btnBet9_Click(object sender, EventArgs e)
         {
-            lotteType = 9;
-            lotteClear();
+            lotteTypeStar = 9;
+            btnBet10.Enabled = true;
+            btnBet9.Enabled = false;
+            btnBet8.Enabled = true;
+            txtBetNuber9.Enabled = true;
+            txtBetNuber10.Enabled = false;
+            btnBet.Enabled = true;
+            lblBetNumber.Text = "";
         }
 
         private void btnBet8_Click(object sender, EventArgs e)
         {
-            lotteType = 8;
-            lotteClear();
+            lotteTypeStar = 8;
+            btnBet10.Enabled = true;
+            btnBet9.Enabled = true;
+            btnBet8.Enabled = false;
+            txtBetNuber9.Enabled = false;
+            txtBetNuber10.Enabled = false;
+            btnBet.Enabled = true;
+            lblBetNumber.Text = "";
         }
 
         private void btnSingle_Click(object sender, EventArgs e)
         {
-            lotteType = 11;
-            lotteClear();
+            lotteTypeEven = 1;
+            btnSingle.Enabled = false;
+            btnEven.Enabled = true;
+            btnLottery.Enabled = true;
+            lblBetNumber.Text = "";
         }
 
         private void btnEven_Click(object sender, EventArgs e)
         {
-            lotteType = 12;
-            lotteClear();
+            lotteTypeEven = 2;
+            btnSingle.Enabled = true;
+            btnEven.Enabled = false;
+            btnLottery.Enabled = true;
+            lblBetNumber.Text = "";
         }
 
         private void btnBig_Click(object sender, EventArgs e)
         {
-            lotteType = 13;
-            lotteClear();
+            lotteTypeSize = 1;
+            btnBig.Enabled = false;
+            btnSmall.Enabled = true;
+            btnLottery.Enabled = true;
+            lblBetNumber.Text = "";
         }
 
         private void btnSmall_Click(object sender, EventArgs e)
         {
-            lotteType = 14;
-            lotteClear();
+            lotteTypeSize = 2;
+            btnBig.Enabled = true;
+            btnSmall.Enabled = false;
+            btnLottery.Enabled = true;
+            lblBetNumber.Text = "";
         }
 
-        private void bntLottery_Click(object sender, EventArgs e)
+        private void btnLottery_Click(object sender, EventArgs e)
         {
-            if (lotteType <= 10)
+            string playType = "選擇玩法: ";
+            string winNumber = "--------------------";
+            string winBigSamll = "--------------------";
+            string winEvenSingle = "--------------------";
+            //testLotte();
+            lotteRandom();
+            if(lotteTypeStar>=8)
             {
-                if (lotteType == 0)
-                {
-                    MessageBox.Show("請選擇玩法");
+                if(lotteTypeStar<11)
+                {                    
+                    Array.Clear(betArray, 0, 10);
+                    lblLottoNumbers.Text = "";
+                    btnLottery.Enabled = false;
+                    MessageBox.Show("投注號碼數量不正確,請重新輸入");
+                    return;
                 }
-                else
-                {
-                    MessageBox.Show("投注號碼數目不正確");
-                }
+                string[] winStrArray = winStar();
+                int winSter = Convert.ToInt32(winStrArray[0]);                
+                playType += $" {lotteTypeStar-100}星 ";
+                winNumber = $"中了{winSter}個號碼\n{winStrArray[1]}";
+
+                //MessageBox.Show("投注成功");
             }
-            else
+            if(lotteTypeSize !=0)//大小
             {
-                testLotte();
-                switch (lotteType)
+                winBigSamll = $"1~40的數量有{20-winSize()}個 41~80的數量有{winSize()}個\n";
+                if(lotteTypeSize ==1)//大
                 {
-                    case 11:
-                        int singleNumber = 20 - winEven();
-                        if(singleNumber>=13)
-                        {
-                            lblWinning.Text= $"單號數量{singleNumber}個 中獎了";
-                        }
-                        break;
-                    case 12:
-                        int evenNumber = winEven();
-                        if (evenNumber >= 13)
-                        {
-                            lblWinning.Text = $"雙號數量{evenNumber}個 中獎了";
-                        }
-                        else
-                        {
-                            lblWinning.Text = $"雙號數量{evenNumber}個 沒有中獎";
-                        }
-                        break;
-                    case 13:
-
-                        break;
-                    case 14:
-
-                        break;
-                    case 108:
-                        int winNumber = winStar();
-                        if(winNumber>=4)
-                        {
-
-                        }
-                        else
-                        {
-                            lblWinning.Text += "\n沒有中獎";
-                        }
-                        
-                        break;
-                    case 109:
-
-                        break;
-                    case 110:
-
-                        break;
-                }
-                lotteType = 0;
-            }
-        }
-       
-        //myMethods
-        bool betConfirm(string a)
-        {
-            bool betConfirm = true;
-            try
-            {
-                int b = Convert.ToInt32(a);
-                if (b>0 && b<=80)
-                {
-                    if (betArray.Length > 0)
+                    playType += $"大 ";
+                    if (winSize() >= 13)
                     {
-                        for (int i = 0; i < betArray.Length; i++)
-                        {
-                            if (betArray[i] == b)
-                            {
-                                betConfirm = false;
-                                MessageBox.Show("重複輸入請重新輸入");
-                                break;
-                            }
-                        }
+                        winBigSamll += "中了";
+                    }
+                    else
+                    {
+                        winBigSamll += "沒中";
+                    }
+                }
+                else//小
+                {
+                    playType += $"小 ";
+                    if (winSize() <= 7)
+                    {
+                        winBigSamll += "中了";
+                    }else
+                    {
+                        winBigSamll += "沒中";
+                    }
+                }
+            }
+            if(lotteTypeEven !=0)//單雙
+            {
+                winEvenSingle = $"單數數量有{20-winEven()}個 雙數數量有{winEven()}個\n";
+                if (lotteTypeEven ==1) //單
+                {
+                    playType += $"單 ";                    
+                    if(winEven() >= 7)
+                    {
+                        winEvenSingle += "中了";
+                    }
+                    else
+                    {
+                        winEvenSingle += "沒中";
                     }
                 }
                 else
                 {
-                    betConfirm = false;
-                    MessageBox.Show("請1~80整數數字");
+                    playType += $"雙 ";
+                    if (winEven() <= 13)
+                    {
+                        winEvenSingle += "中了";
+                    }
+                    else
+                    {
+                        winEvenSingle += "沒中";
+                    }
                 }
             }
-            catch (Exception error)
+            lotteTypeStar = 0;
+            lblWinning.Text = $"{playType}\n{winNumber}\n\n{winBigSamll}\n\n{winEvenSingle}";
+            lotteClear();
+            //if (lotteType <= 10)
+            //{
+            //    if (lotteType == 0)
+            //    {
+            //        MessageBox.Show("請選擇玩法");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show("投注號碼數目不正確");
+            //    }
+            //}
+            //else
+            //{
+            //    testLotte();
+            //    switch (lotteType)
+            //    {
+            //        case 11:
+            //            int singleNumber = 20 - winEven();
+            //            if(singleNumber>=13)
+            //            {
+            //                lblWinning.Text= $"單號數量{singleNumber}個 中獎了";
+            //            }
+            //            break;
+            //        case 12:
+            //            int evenNumber = winEven();
+            //            if (evenNumber >= 13)
+            //            {
+            //                lblWinning.Text = $"雙號數量{evenNumber}個 中獎了";
+            //            }
+            //            else
+            //            {
+            //                lblWinning.Text = $"雙號數量{evenNumber}個 沒有中獎";
+            //            }
+            //            break;
+            //        case 13:
+
+            //            break;
+            //        case 14:
+
+            //            break;
+            //        case 108:
+            //            int winNumber = winStar();
+            //            if(winNumber>=4)
+            //            {
+
+            //            }
+            //            else
+            //            {
+            //                lblWinning.Text += "\n沒有中獎";
+            //            }
+
+            //            break;
+            //        case 109:
+
+            //            break;
+            //        case 110:
+
+            //            break;
+        //    lotteType = 0;
+        //}
+        }
+        
+            
+        
+       
+        //myMethods
+        bool betConfirm(int x,string myTxt)
+        {
+            bool betConfirm = false;
+            try
             {
-                MessageBox.Show("請輸入數字");
-                betConfirm = false;
+                int myNumber = Convert.ToInt32(myTxt);                
+                if (myNumber<1||myNumber>80)
+                {
+                    Array.Clear(betArray, 0, 10);
+                    MessageBox.Show("請輸入1~80數字");
+                    betConfirm = true;
+                    return betConfirm;
+                }
+                if(Array.IndexOf(betArray,myNumber)!=-1)
+                {
+                    betConfirm = true;
+                    return betConfirm;
+                }
+                betArray[x] = myNumber;
+            }
+                catch
+            {
+                betConfirm = true;
+                Array.Clear(betArray, 0, 10);
+                MessageBox.Show("輸入錯誤,請重新輸入");
+                return betConfirm;
             }
             return betConfirm;
         }
@@ -216,8 +396,31 @@ namespace bingo_bingo
                 lblLottoNumbers.Text += string.Format($"{lotteArray[i]:D2} ");
             }            
         }
-        int winStar()
+        void lotteRandom()
         {
+            Random numberRandom = new Random();
+            for(int i = 0; i<=lotteArray.Length-1;i++)
+            {
+                int x = numberRandom.Next(1, 81);
+                if (Array.IndexOf(lotteArray,x) ==-1) 
+                {
+                    lotteArray[i] = x;
+                }
+                else
+                {
+                    i -= 1;
+                }
+            }
+            supLotteNumber = lotteArray[19];
+            Array.Sort(lotteArray);
+            foreach(int i in lotteArray)
+            {
+                lblLottoNumbers.Text += string.Format($"{i:D2} ");
+            }
+        }
+        string[] winStar()
+        {
+            string[] myArray = new string[2];
             int myWinning = 0;
             string winNumber = "";
             for (int i = 0; i < lotteArray.Length; i++)
@@ -228,8 +431,9 @@ namespace bingo_bingo
                     myWinning += 1;
                 }
             }
-            lblWinning.Text =string.Format($"超級號號:{supLotteNumber:D2}\n中獎號碼:{winNumber}\n中了{myWinning}個號碼") ;
-            return myWinning;
+            myArray[0] = Convert.ToString(myWinning);
+            myArray[1] = winNumber;            
+            return myArray;
         }
         int winEven()
         {
@@ -259,14 +463,29 @@ namespace bingo_bingo
 
             return myBigNumber;
         }
-
         void lotteClear()
         {
-            Array.Clear(betArray, 0, 10);
+            txtBetNuber1.Text = null;
+            txtBetNuber2.Text = null;
+            txtBetNuber3.Text = null;
+            txtBetNuber4.Text = null;
+            txtBetNuber5.Text = null;
+            txtBetNuber6.Text = null;
+            txtBetNuber7.Text = null;
+            txtBetNuber8.Text = null;
+            txtBetNuber9.Text = null;
+            txtBetNuber10.Text = null;
+            btnBet.Enabled = false;
+            btnLottery.Enabled = false;
+            btnBet10.Enabled = true;
+            btnBet9.Enabled = true;
+            btnBet8.Enabled = true;
+            btnBig.Enabled = true;
+            btnSmall.Enabled = true;
+            btnEven.Enabled = true;
+            btnSingle.Enabled = true;
             Array.Clear(lotteArray, 0, 20);
-            lblBetNumber.Text = "";
-            lblLottoNumbers.Text = "";
-            lblWinning.Text = "";
+            Array.Clear(betArray, 0, 10);
         }
     }
 }
