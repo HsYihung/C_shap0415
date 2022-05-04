@@ -20,7 +20,9 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Person.abuotInfo();
+            ///Person.abuotInfo();
+            //GlobalVar.目前的使用者 = "人資經理 - 黃小貓";
+            lblLoginName.Text = "目前使用者 :"+GlobalVar.目前的使用者;
         }
 
         private void btn創建員工1_Click(object sender, EventArgs e)
@@ -32,6 +34,13 @@ namespace WindowsFormsApp1
             員工1.到職日 = Convert.ToDateTime("2022-04-28");
             員工1.薪資 = 21000;
             員工1.部門代號 = (int)MyEnums.Dep.行政處;
+            員工1.年齡.data = 30;
+            員工1.Email.data = "DaviWang@test.com.tw";
+            員工1.Email.saveDate("DaviWang@test.com.tw");
+            員工1.年齡.saveDate(30);
+            員工1.年齡.dataGetSet = 30;
+            員工1.地址 = new AddressInfo("高雄市","前金區","中正路888號");
+            
             
             員工基本資料集合.Add(員工1);
 
@@ -46,6 +55,14 @@ namespace WindowsFormsApp1
             員工2.到職日 = new DateTime(2018,7,2,0,0,0);
             員工2.薪資 = 32000.0;
             員工2.部門代號 = (int)MyEnums.Dep.資訊處;
+            員工2.Email.data = "MaryLee@test.com.tw";
+            員工2.年齡.data = 35;
+            員工2.Email.saveDate("MaryLee@test.com.tw");
+            員工2.年齡.saveDate(35);
+            員工2.地址 = new AddressInfo("高雄市", "前金區", "中正路888號");
+            員工2.地址.縣市 = "台南市";
+            員工2.地址.行政區 = "東區";
+            員工2.地址.街道門牌 = "中華路1000號";
 
             員工基本資料集合.Add(員工2);
             員工2.顯示基本資料();
@@ -73,9 +90,10 @@ namespace WindowsFormsApp1
             管理者1.體重 = 65.0;
             管理者1.薪資 = 60000.0;
             管理者1.到職日 = new DateTime(2010,2,21,0,0,0);
-            管理者1.部門代號 = (int)MyEnums.Dep.行政處;
-            管理者1.職稱 = (int)MyEnums.Man.經理;
+            管理者1.部門代號 = (int)MyEnums.Dep.業務部 ;
+            管理者1.職稱代號 = (int)MyEnums.Man.經理;
 
+            //GlobalVar.目前的使用者 = "業務部經理 - 陳經理";
 
             管理者1.顯示基本資料();
 

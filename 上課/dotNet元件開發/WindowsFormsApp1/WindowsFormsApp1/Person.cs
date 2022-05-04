@@ -24,6 +24,8 @@ namespace WindowsFormsApp1
         //------------------------------------
         public string 姓名 { get; set; }//屬性 property , get: 取值 set:存值
         protected double _薪資;
+
+
         public virtual double 薪資 
         {
             get//取值
@@ -44,7 +46,12 @@ namespace WindowsFormsApp1
                 _薪資 = value;
             }
         }
-        
+        //泛型欄位 Generics
+        public PersonInfo<string> Email = new PersonInfo<string>();
+        public PersonInfo<int> 年齡 = new PersonInfo<int>();
+
+        public AddressInfo 地址;
+
         public Person()
         {
             //預設建構式
@@ -60,8 +67,8 @@ namespace WindowsFormsApp1
 
         public virtual void 顯示基本資料()
         {
-            string strInfo = string.Format($"姓名:{this.姓名} \n身高:{this.身高:F}\n體重:{this.體重:F}\n薪資:{this.薪資:C}\n到職日:{this.到職日:D}\n部門代號:{部門代號}\n部門名稱:{顯示部門名稱(部門代號)}");
-
+            string strInfo = string.Format($"姓名:{this.姓名} \n身高:{this.身高:F}\n體重:{this.體重:F}\n薪資:{this.薪資:C}\n到職日:{this.到職日:D}\n部門代號:{部門代號}\n部門名稱:{顯示部門名稱(部門代號)}\nEmail:{Email.data}\n年齡:{年齡.data}\n地址:{地址.完整地址()}");
+            strInfo += "\n本資料由" + GlobalVar.目前的使用者 + "編輯輸入";
             MessageBox.Show(strInfo);
         }
 

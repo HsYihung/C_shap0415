@@ -33,6 +33,7 @@ namespace WindowsFormsApp1
             this.btn創建員工2 = new System.Windows.Forms.Button();
             this.btn列出所有員工 = new System.Windows.Forms.Button();
             this.btn創建管理者1 = new System.Windows.Forms.Button();
+            this.lblLoginName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn創建員工1
@@ -79,12 +80,23 @@ namespace WindowsFormsApp1
             this.btn創建管理者1.UseVisualStyleBackColor = true;
             this.btn創建管理者1.Click += new System.EventHandler(this.btn創建管理者1_Click);
             // 
+            // lblLoginName
+            // 
+            this.lblLoginName.AutoSize = true;
+            this.lblLoginName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lblLoginName.Location = new System.Drawing.Point(12, 9);
+            this.lblLoginName.Name = "lblLoginName";
+            this.lblLoginName.Size = new System.Drawing.Size(90, 21);
+            this.lblLoginName.TabIndex = 4;
+            this.lblLoginName.Text = "登入者名稱";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Yellow;
             this.ClientSize = new System.Drawing.Size(332, 449);
+            this.Controls.Add(this.lblLoginName);
             this.Controls.Add(this.btn創建管理者1);
             this.Controls.Add(this.btn列出所有員工);
             this.Controls.Add(this.btn創建員工2);
@@ -93,6 +105,7 @@ namespace WindowsFormsApp1
             this.Text = "Class的實作";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -102,6 +115,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btn創建員工2;
         private System.Windows.Forms.Button btn列出所有員工;
         private System.Windows.Forms.Button btn創建管理者1;
+        private System.Windows.Forms.Label lblLoginName;
     }
 }
 

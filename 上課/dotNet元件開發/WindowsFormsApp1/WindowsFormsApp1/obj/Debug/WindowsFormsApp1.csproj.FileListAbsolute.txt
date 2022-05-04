@@ -8,3 +8,4 @@ C:\Users\iii\Desktop\C_shap\上課\dotNet元件開發\WindowsFormsApp1\WindowsFo
 C:\Users\iii\Desktop\C_shap\上課\dotNet元件開發\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
 C:\Users\iii\Desktop\C_shap\上課\dotNet元件開發\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
 C:\Users\iii\Desktop\C_shap\上課\dotNet元件開發\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\iii\Desktop\C_shap\上課\dotNet元件開發\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.FormLogin.resources
