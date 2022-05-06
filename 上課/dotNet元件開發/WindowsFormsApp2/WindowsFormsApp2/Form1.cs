@@ -20,10 +20,6 @@ namespace WindowsFormsApp2
             InitializeComponent();
         }
 
-        void passDelegateMethOne(MyDelegate myDelegateObj)
-        {
-            myDelegateObj("成功執行 !!");
-        }
       
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -36,6 +32,11 @@ namespace WindowsFormsApp2
             MessageBox.Show(strOut);
         }
 
+        void passDelegateMethOne(MyDelegate myDelegateObj)
+        {
+            myDelegateObj("成功執行 !!");
+        }
+
         private void btnDelegate_Click(object sender, EventArgs e)
         {
             MyDelegate delegateTest = MethodOne;
@@ -46,15 +47,28 @@ namespace WindowsFormsApp2
 
         private void btnAction_Click(object sender, EventArgs e)
         {
-
+            Action<int, int> actionPlus = plus;
+            actionPlus(7,8);
         }
+
+        void plus(int a,int b)
+        {
+            int sum = a + b;
+            MessageBox.Show("Action Demo: "+sum);
+        }
+
 
         private void btnFunc_Click(object sender, EventArgs e)
         {
-
+            Func<int, int, int, int> funcSum = sum;
+            MessageBox.Show("Func Demo: " + funcSum(1, 2, 3));
         }
 
-
+        int sum(int a,int b,int c)
+        {
+            int sum = a + b + c;
+            return sum;
+        }
 
     }
 }
