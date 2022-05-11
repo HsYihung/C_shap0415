@@ -24,17 +24,39 @@ namespace drink_shop
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            if(txtClient.Text != ""||txtClientNum.Text!="")
+            {
+                GlobalVar.ClientName = txtClient.Text;
+                GlobalVar.ClientNum = txtClientNum.Text;
 
+                if(GlobalVar.訂購單 == null)
+                {
+                    Form2 訂購單 = new Form2();
+                    GlobalVar.訂購單 = 訂購單;
+                }
+                GlobalVar.訂購人輸入 = this;                          
+                GlobalVar.訂購單.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("請輸入訂購人資訊");
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-
+            txtClient.Clear();
+            txtClientNum.Clear();
         }
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
         }
     }
 }

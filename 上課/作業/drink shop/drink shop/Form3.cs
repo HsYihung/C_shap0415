@@ -16,7 +16,10 @@ namespace drink_shop
         {
             InitializeComponent();
         }
+        private void Form3_Load(object sender, EventArgs e)
+        {
 
+        }
         private void btnReClient_Click(object sender, EventArgs e)
         {
 
@@ -72,14 +75,16 @@ namespace drink_shop
 
         }
 
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnQuit_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void Form3_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            GlobalVar.訂購單.Close();
+        }
+
+
     }
 }

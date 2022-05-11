@@ -44,6 +44,22 @@ namespace ConsoleApp1
             Console.WriteLine("按Enter結束程式");
 
 
+            //int[] years = { 2013, 201, 2015 };
+            //int[] population = { 1025632, 1105967, 03 };
+            //String s = String.Format("{0,-10} {1,-10}\n\n", "Year", "Population");
+            //for (int index = 0; index < years.Length; index++)
+            //    s += String.Format("{0,-10} {1,-10:N0}\n",
+            //                       years[index], population[index]);
+            //Console.WriteLine($"\n{s}");
+            int[] years = { 2013, 2014, 2015 };
+            int[] population = { 1025632, 1105967, 1143 };
+            var sb = new System.Text.StringBuilder();
+            sb.Append(String.Format("{0,-6} {1,15}\n\n", "Year", "Population"));
+            for (int index = 0; index < years.Length; index++)
+                sb.Append(String.Format("{0,-6} {1,15:N0}\n", years[index], population[index]));
+
+            Console.WriteLine(sb);
+
             System.Console.ReadLine();
         }
     }

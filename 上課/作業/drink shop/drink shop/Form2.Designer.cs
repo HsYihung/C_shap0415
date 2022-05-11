@@ -39,7 +39,7 @@ namespace drink_shop
             this.label4 = new System.Windows.Forms.Label();
             this.cboxIce = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnDiscount = new System.Windows.Forms.Button();
+            this.btnShopReChoose = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblClient = new System.Windows.Forms.Label();
@@ -91,6 +91,7 @@ namespace drink_shop
             // 
             // lboxDrink
             // 
+            this.lboxDrink.Enabled = false;
             this.lboxDrink.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lboxDrink.FormattingEnabled = true;
             this.lboxDrink.ItemHeight = 21;
@@ -102,6 +103,7 @@ namespace drink_shop
             // 
             // lboxFeed
             // 
+            this.lboxFeed.Enabled = false;
             this.lboxFeed.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lboxFeed.FormattingEnabled = true;
             this.lboxFeed.ItemHeight = 21;
@@ -162,15 +164,15 @@ namespace drink_shop
             this.label5.TabIndex = 9;
             this.label5.Text = "配料";
             // 
-            // btnDiscount
+            // btnShopReChoose
             // 
-            this.btnDiscount.Location = new System.Drawing.Point(189, 97);
-            this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(75, 23);
-            this.btnDiscount.TabIndex = 10;
-            this.btnDiscount.Text = "店家優惠";
-            this.btnDiscount.UseVisualStyleBackColor = true;
-            this.btnDiscount.Click += new System.EventHandler(this.btnDiscount_Click);
+            this.btnShopReChoose.Location = new System.Drawing.Point(189, 96);
+            this.btnShopReChoose.Name = "btnShopReChoose";
+            this.btnShopReChoose.Size = new System.Drawing.Size(75, 23);
+            this.btnShopReChoose.TabIndex = 10;
+            this.btnShopReChoose.Text = "重新選擇";
+            this.btnShopReChoose.UseVisualStyleBackColor = true;
+            this.btnShopReChoose.Click += new System.EventHandler(this.btnShopReChoose_Click);
             // 
             // label6
             // 
@@ -198,9 +200,8 @@ namespace drink_shop
             this.lblClient.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblClient.Location = new System.Drawing.Point(439, 58);
             this.lblClient.Name = "lblClient";
-            this.lblClient.Size = new System.Drawing.Size(46, 21);
+            this.lblClient.Size = new System.Drawing.Size(0, 21);
             this.lblClient.TabIndex = 13;
-            this.lblClient.Text = "AAA";
             // 
             // lblClientNum
             // 
@@ -208,9 +209,8 @@ namespace drink_shop
             this.lblClientNum.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lblClientNum.Location = new System.Drawing.Point(471, 95);
             this.lblClientNum.Name = "lblClientNum";
-            this.lblClientNum.Size = new System.Drawing.Size(110, 21);
+            this.lblClientNum.Size = new System.Drawing.Size(0, 21);
             this.lblClientNum.TabIndex = 14;
-            this.lblClientNum.Text = "1234567890";
             // 
             // btnFeedClear
             // 
@@ -219,7 +219,7 @@ namespace drink_shop
             this.btnFeedClear.Name = "btnFeedClear";
             this.btnFeedClear.Size = new System.Drawing.Size(153, 38);
             this.btnFeedClear.TabIndex = 15;
-            this.btnFeedClear.Text = "配料取消";
+            this.btnFeedClear.Text = "配料清除";
             this.btnFeedClear.UseVisualStyleBackColor = true;
             this.btnFeedClear.Click += new System.EventHandler(this.btnFeedClear_Click);
             // 
@@ -370,7 +370,7 @@ namespace drink_shop
             this.Controls.Add(this.lblClient);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.btnDiscount);
+            this.Controls.Add(this.btnShopReChoose);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.cboxIce);
@@ -383,6 +383,7 @@ namespace drink_shop
             this.Controls.Add(this.label1);
             this.Name = "Form2";
             this.Text = "飲料店訂購單";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Shown += new System.EventHandler(this.Form2_Shown);
             this.ResumeLayout(false);
@@ -402,7 +403,7 @@ namespace drink_shop
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cboxIce;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button btnDiscount;
+        private System.Windows.Forms.Button btnShopReChoose;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblClient;

@@ -47,7 +47,6 @@ namespace drink_shop
             this.btnListAllClear = new System.Windows.Forms.Button();
             this.btnShowList = new System.Windows.Forms.Button();
             this.btnListtotxt = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -243,23 +242,12 @@ namespace drink_shop
             this.btnListtotxt.UseVisualStyleBackColor = true;
             this.btnListtotxt.Click += new System.EventHandler(this.btnListtotxt_Click);
             // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(2, 662);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(46, 23);
-            this.btnBack.TabIndex = 18;
-            this.btnBack.Text = "返回訂購單";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Thistle;
             this.ClientSize = new System.Drawing.Size(380, 686);
-            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnListtotxt);
             this.Controls.Add(this.btnShowList);
             this.Controls.Add(this.btnReList);
@@ -282,6 +270,8 @@ namespace drink_shop
             this.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.Name = "Form3";
             this.Text = "訂購清單";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form3_FormClosing);
+            this.Load += new System.EventHandler(this.Form3_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +297,5 @@ namespace drink_shop
         private System.Windows.Forms.Button btnListAllClear;
         private System.Windows.Forms.Button btnShowList;
         private System.Windows.Forms.Button btnListtotxt;
-        private System.Windows.Forms.Button btnBack;
     }
 }

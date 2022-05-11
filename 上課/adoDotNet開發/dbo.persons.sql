@@ -1,4 +1,7 @@
-﻿CREATE TABLE [dbo].[persons]
+﻿use mydb
+go
+
+CREATE TABLE [dbo].[persons]
 (
 	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [姓名] NCHAR(50) NULL, 

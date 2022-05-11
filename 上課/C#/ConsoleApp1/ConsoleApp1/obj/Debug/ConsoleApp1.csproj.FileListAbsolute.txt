@@ -5,3 +5,10 @@ C:\Users\iii\Desktop\000\上課\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1
 C:\Users\iii\Desktop\000\上課\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
 C:\Users\iii\Desktop\000\上課\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
 C:\Users\iii\Desktop\000\上課\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\C_shap\上課\C#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\iii\Desktop\C_shap\上課\C#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\iii\Desktop\C_shap\上課\C#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\iii\Desktop\C_shap\上課\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\C_shap\上課\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\C_shap\上課\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\iii\Desktop\C_shap\上課\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
