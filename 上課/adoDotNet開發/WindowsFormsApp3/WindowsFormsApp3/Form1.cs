@@ -31,6 +31,18 @@ namespace WindowsFormsApp3
             this.personsTableAdapter.Fill(this.mydbDataSet.persons);
             顯示第幾筆共幾筆資料();
 
+            cboxFind.Items.Add("姓名");
+            cboxFind.Items.Add("電話");
+            cboxFind.Items.Add("地址");
+            cboxFind.Items.Add("Email");
+            cboxFind.SelectedIndex = 0;
+
+            cboxFilter.Items.Add("姓名");
+            cboxFilter.Items.Add("電話");
+            cboxFilter.Items.Add("地址");
+            cboxFilter.Items.Add("Email");
+            cboxFilter.SelectedIndex = 0;
+
         }
 
         private void btn第一筆_Click(object sender, EventArgs e)
@@ -148,12 +160,61 @@ namespace WindowsFormsApp3
 
             }
         }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            if(txtFind.Text != "")
+            {
+                string strSearch = txtFind.Text;
+                string str欄位名稱 = cboxFind.SelectedItem.ToString();
+                int idxFind = personsBindingSource.Find(str欄位名稱,strSearch);
+                if(idxFind >= 0)
+                {
+                    personsBindingSource.Position = idxFind;
+                }
+                else
+                {
+                    MessageBox.Show("找不到資料");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("請輸入Find關鍵字");
+            }
+        }
+
+        private void Filter_Click(object sender, EventArgs e)
+        {
+            if(txtFilter.Text != "")
+            {
+                string strSearch = txtFilter.Text;
+                string str欄位名稱 = cboxFilter.SelectedItem.ToString();
+                personsBindingSource.Filter = $"{str欄位名稱} like '%{strSearch}%'";
+                if(lbox姓名.Items.Count==0)
+                {                    
+                    personsBindingSource.RemoveFilter();
+                    MessageBox.Show("找不到資料");
+                }
+            }
+            else
+            {
+                MessageBox.Show("請輸入Filter關鍵字");
+            }
+        }
+
         ///
         void 顯示第幾筆共幾筆資料()
         {
             int 目前第幾筆 = personsBindingSource.Position + 1;
-            lbl第幾筆共幾筆.Text = string.Format("第{0}筆/共{1}筆",目前第幾筆,personsBindingSource.Count);
+            lbl第幾筆共幾筆.Text = string.Format("第{0}筆/共{1}筆", 目前第幾筆, personsBindingSource.Count);
 
+        }
+
+        private void btnRemoveFilter_Click(object sender, EventArgs e)
+        {
+            personsBindingSource.RemoveFilter();
+            txtFilter.Clear();
         }
     }
 }

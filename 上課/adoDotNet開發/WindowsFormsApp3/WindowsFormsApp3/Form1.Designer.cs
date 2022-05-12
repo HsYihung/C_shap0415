@@ -84,12 +84,23 @@ namespace WindowsFormsApp3
             this.btn新增資料儲存 = new System.Windows.Forms.Button();
             this.btn新增資料新增 = new System.Windows.Forms.Button();
             this.lbl第幾筆共幾筆 = new System.Windows.Forms.Label();
+            this.lbox姓名 = new System.Windows.Forms.ListBox();
+            this.cboxEmail = new System.Windows.Forms.ComboBox();
+            this.gpBox搜尋功能 = new System.Windows.Forms.GroupBox();
+            this.txtFind = new System.Windows.Forms.TextBox();
+            this.txtFilter = new System.Windows.Forms.TextBox();
+            this.cboxFind = new System.Windows.Forms.ComboBox();
+            this.cboxFilter = new System.Windows.Forms.ComboBox();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.Filter = new System.Windows.Forms.Button();
+            this.btnRemoveFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mydbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personsBindingNavigator)).BeginInit();
             this.personsBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataGridView)).BeginInit();
             this.gpBox新增資料.SuspendLayout();
+            this.gpBox搜尋功能.SuspendLayout();
             this.SuspendLayout();
             // 
             // mydbDataSet
@@ -415,7 +426,7 @@ namespace WindowsFormsApp3
             this.txt地址.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txt地址.Location = new System.Drawing.Point(137, 151);
             this.txt地址.Name = "txt地址";
-            this.txt地址.Size = new System.Drawing.Size(354, 35);
+            this.txt地址.Size = new System.Drawing.Size(302, 35);
             this.txt地址.TabIndex = 12;
             // 
             // txt電話
@@ -442,7 +453,7 @@ namespace WindowsFormsApp3
             this.txtEmail.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.txtEmail.Location = new System.Drawing.Point(137, 192);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(354, 35);
+            this.txtEmail.Size = new System.Drawing.Size(302, 35);
             this.txtEmail.TabIndex = 16;
             // 
             // dtp生日
@@ -551,7 +562,7 @@ namespace WindowsFormsApp3
             this.gpBox新增資料.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.gpBox新增資料.Location = new System.Drawing.Point(338, 427);
             this.gpBox新增資料.Name = "gpBox新增資料";
-            this.gpBox新增資料.Size = new System.Drawing.Size(222, 68);
+            this.gpBox新增資料.Size = new System.Drawing.Size(282, 68);
             this.gpBox新增資料.TabIndex = 26;
             this.gpBox新增資料.TabStop = false;
             this.gpBox新增資料.Text = "新增資料";
@@ -559,7 +570,7 @@ namespace WindowsFormsApp3
             // btn新增資料儲存
             // 
             this.btn新增資料儲存.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn新增資料儲存.Location = new System.Drawing.Point(142, 28);
+            this.btn新增資料儲存.Location = new System.Drawing.Point(202, 30);
             this.btn新增資料儲存.Name = "btn新增資料儲存";
             this.btn新增資料儲存.Size = new System.Drawing.Size(74, 32);
             this.btn新增資料儲存.TabIndex = 28;
@@ -582,18 +593,127 @@ namespace WindowsFormsApp3
             // 
             this.lbl第幾筆共幾筆.AutoSize = true;
             this.lbl第幾筆共幾筆.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.lbl第幾筆共幾筆.Location = new System.Drawing.Point(171, 360);
+            this.lbl第幾筆共幾筆.Location = new System.Drawing.Point(162, 462);
             this.lbl第幾筆共幾筆.Name = "lbl第幾筆共幾筆";
             this.lbl第幾筆共幾筆.Size = new System.Drawing.Size(133, 26);
             this.lbl第幾筆共幾筆.TabIndex = 27;
             this.lbl第幾筆共幾筆.Text = "第X筆/共X筆";
+            // 
+            // lbox姓名
+            // 
+            this.lbox姓名.DataSource = this.personsBindingSource;
+            this.lbox姓名.DisplayMember = "姓名";
+            this.lbox姓名.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.lbox姓名.FormattingEnabled = true;
+            this.lbox姓名.ItemHeight = 21;
+            this.lbox姓名.Location = new System.Drawing.Point(453, 40);
+            this.lbox姓名.Name = "lbox姓名";
+            this.lbox姓名.Size = new System.Drawing.Size(167, 193);
+            this.lbox姓名.TabIndex = 28;
+            // 
+            // cboxEmail
+            // 
+            this.cboxEmail.DataSource = this.personsBindingSource;
+            this.cboxEmail.DisplayMember = "email";
+            this.cboxEmail.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cboxEmail.FormattingEnabled = true;
+            this.cboxEmail.Location = new System.Drawing.Point(452, 241);
+            this.cboxEmail.Name = "cboxEmail";
+            this.cboxEmail.Size = new System.Drawing.Size(167, 29);
+            this.cboxEmail.TabIndex = 29;
+            // 
+            // gpBox搜尋功能
+            // 
+            this.gpBox搜尋功能.Controls.Add(this.Filter);
+            this.gpBox搜尋功能.Controls.Add(this.btnFind);
+            this.gpBox搜尋功能.Controls.Add(this.cboxFilter);
+            this.gpBox搜尋功能.Controls.Add(this.cboxFind);
+            this.gpBox搜尋功能.Controls.Add(this.txtFilter);
+            this.gpBox搜尋功能.Controls.Add(this.txtFind);
+            this.gpBox搜尋功能.Location = new System.Drawing.Point(310, 279);
+            this.gpBox搜尋功能.Name = "gpBox搜尋功能";
+            this.gpBox搜尋功能.Size = new System.Drawing.Size(310, 100);
+            this.gpBox搜尋功能.TabIndex = 30;
+            this.gpBox搜尋功能.TabStop = false;
+            this.gpBox搜尋功能.Text = "搜尋功能";
+            // 
+            // txtFind
+            // 
+            this.txtFind.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtFind.Location = new System.Drawing.Point(8, 21);
+            this.txtFind.Name = "txtFind";
+            this.txtFind.Size = new System.Drawing.Size(135, 27);
+            this.txtFind.TabIndex = 0;
+            // 
+            // txtFilter
+            // 
+            this.txtFilter.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtFilter.Location = new System.Drawing.Point(8, 67);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(135, 27);
+            this.txtFilter.TabIndex = 1;
+            // 
+            // cboxFind
+            // 
+            this.cboxFind.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cboxFind.FormattingEnabled = true;
+            this.cboxFind.Location = new System.Drawing.Point(149, 21);
+            this.cboxFind.Name = "cboxFind";
+            this.cboxFind.Size = new System.Drawing.Size(76, 29);
+            this.cboxFind.TabIndex = 31;
+            // 
+            // cboxFilter
+            // 
+            this.cboxFilter.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.cboxFilter.FormattingEnabled = true;
+            this.cboxFilter.Location = new System.Drawing.Point(149, 67);
+            this.cboxFilter.Name = "cboxFilter";
+            this.cboxFilter.Size = new System.Drawing.Size(76, 29);
+            this.cboxFilter.TabIndex = 32;
+            // 
+            // btnFind
+            // 
+            this.btnFind.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnFind.Location = new System.Drawing.Point(231, 21);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(73, 32);
+            this.btnFind.TabIndex = 29;
+            this.btnFind.Text = "Find";
+            this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
+            // Filter
+            // 
+            this.Filter.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Filter.Location = new System.Drawing.Point(231, 64);
+            this.Filter.Name = "Filter";
+            this.Filter.Size = new System.Drawing.Size(73, 32);
+            this.Filter.TabIndex = 33;
+            this.Filter.Text = "Filter";
+            this.Filter.UseVisualStyleBackColor = true;
+            this.Filter.Click += new System.EventHandler(this.Filter_Click);
+            // 
+            // btnRemoveFilter
+            // 
+            this.btnRemoveFilter.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnRemoveFilter.Location = new System.Drawing.Point(468, 385);
+            this.btnRemoveFilter.Name = "btnRemoveFilter";
+            this.btnRemoveFilter.Size = new System.Drawing.Size(129, 36);
+            this.btnRemoveFilter.TabIndex = 31;
+            this.btnRemoveFilter.Text = "移除Filter條件";
+            this.btnRemoveFilter.UseVisualStyleBackColor = true;
+            this.btnRemoveFilter.Click += new System.EventHandler(this.btnRemoveFilter_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightCyan;
-            this.ClientSize = new System.Drawing.Size(572, 511);
+            this.ClientSize = new System.Drawing.Size(631, 505);
+            this.Controls.Add(this.btnRemoveFilter);
+            this.Controls.Add(this.gpBox搜尋功能);
+            this.Controls.Add(this.cboxEmail);
+            this.Controls.Add(this.lbox姓名);
             this.Controls.Add(this.lbl第幾筆共幾筆);
             this.Controls.Add(this.gpBox新增資料);
             this.Controls.Add(this.btn回復資料);
@@ -631,6 +751,8 @@ namespace WindowsFormsApp3
             this.personsBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.personsDataGridView)).EndInit();
             this.gpBox新增資料.ResumeLayout(false);
+            this.gpBox搜尋功能.ResumeLayout(false);
+            this.gpBox搜尋功能.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -691,6 +813,16 @@ namespace WindowsFormsApp3
         private System.Windows.Forms.Button btn新增資料儲存;
         private System.Windows.Forms.Button btn新增資料新增;
         private System.Windows.Forms.Label lbl第幾筆共幾筆;
+        private System.Windows.Forms.ListBox lbox姓名;
+        private System.Windows.Forms.ComboBox cboxEmail;
+        private System.Windows.Forms.GroupBox gpBox搜尋功能;
+        private System.Windows.Forms.Button Filter;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.ComboBox cboxFilter;
+        private System.Windows.Forms.ComboBox cboxFind;
+        private System.Windows.Forms.TextBox txtFilter;
+        private System.Windows.Forms.TextBox txtFind;
+        private System.Windows.Forms.Button btnRemoveFilter;
     }
 }
 
