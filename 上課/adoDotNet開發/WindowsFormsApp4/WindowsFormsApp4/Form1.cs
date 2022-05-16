@@ -16,7 +16,7 @@ namespace WindowsFormsApp4
         SqlConnectionStringBuilder scsb;
         string myDBConnectionString = "";
         List<int> searchIDs = new List<int>(); //進階搜尋結果
-
+        string sql婚姻狀態查詢語法 = "";
 
         public Form1()
         {
@@ -31,6 +31,12 @@ namespace WindowsFormsApp4
             scsb.IntegratedSecurity = true;
             myDBConnectionString = scsb.ToString();
             lblID.Text = "0";
+            cbox欄位名稱.Items.Add("姓名");
+            cbox欄位名稱.Items.Add("電話");
+            cbox欄位名稱.Items.Add("地址");
+            cbox欄位名稱.Items.Add("email");
+            cbox欄位名稱.SelectedIndex = 0;
+            產生會員資料列表();
         }
 
         private void btn資料筆數_Click(object sender, EventArgs e)
@@ -201,7 +207,6 @@ namespace WindowsFormsApp4
                     int intPoints = 0;
                     Int32.TryParse(txt點數.Text,out intPoints);
                     cmd.Parameters.AddWithValue("@updatePoints", intPoints);
-
                     int rows = cmd.ExecuteNonQuery();
                     con.Close();
                     MessageBox.Show($"{rows}筆資料修改完成");
@@ -214,6 +219,147 @@ namespace WindowsFormsApp4
             else
             {
 
+            }
+        }
+        
+        private void btn搜尋_Click(object sender, EventArgs e)
+        {            
+            lbox搜尋結果.Items.Clear();
+            searchIDs.Clear();
+            string str欄位名稱 = cbox欄位名稱.SelectedItem.ToString();
+            //string sql婚姻狀態查詢語法 = "";
+            //switch(int搜尋婚姻狀態)
+            //{
+            //    case 0:
+            //        break;
+            //    case 1:
+            //        sql婚姻狀態查詢語法 = " and (婚姻狀態 = 1)";
+            //        break;
+            //    case 2:
+
+            //        break;
+            //    default:
+            //        break;
+            //}            
+            if(txt欄位關鍵字.Text != "")
+            {
+                string strSQL = $"select * from persons where ({str欄位名稱} like @SeacrhName) and (生日 >= '{dtp開始生日.Value:d}' and  生日 <= '{dtp結束生日.Value:d}'){sql婚姻狀態查詢語法}";//使用日期value 需轉格式
+                SqlConnection con = new SqlConnection(myDBConnectionString);
+                con.Open();                
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.Parameters.AddWithValue("@SeacrhName","%"+txt欄位關鍵字.Text+"%");
+                //cmd.Parameters.AddWithValue("@StarDate", dtp開始生日.Value);
+                //cmd.Parameters.AddWithValue("@EndDate", dtp結束生日.Value);
+                SqlDataReader reader = cmd.ExecuteReader();
+                int i = 0;
+                while(reader.Read())
+                {
+                    lbox搜尋結果.Items.Add((string)reader["姓名"]);
+                    searchIDs.Add((int)reader["Id"]);
+                    i++;
+                }
+                if(i==0)
+                {
+                    MessageBox.Show("查無此人");
+                }
+                reader.Close();
+                con.Close();
+            }
+            else
+            {
+                MessageBox.Show("請輸入搜尋關鍵字");
+            }
+        }
+
+        private void lbox搜尋結果_SelectedIndexChanged(object sender, EventArgs e)
+        {            
+            if(lbox搜尋結果.SelectedIndex >= 0)
+            {
+                int intID = searchIDs[lbox搜尋結果.SelectedIndex];
+                string strSQL = "select * from persons where Id = @SearchID";
+                SqlConnection con = new SqlConnection(myDBConnectionString);
+                con.Open();
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.Parameters.AddWithValue("SearchID",intID);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if(reader.Read())
+                {
+                    lblID.Text = reader["Id"].ToString();
+                    txt姓名.Text = (string)reader["姓名"];
+                    txt電話.Text = (string)reader["電話"];
+                    txt地址.Text = (string)reader["地址"];
+                    txtEmail.Text = (string)reader["email"];
+                    dtp生日.Value = (DateTime)reader["生日"];
+                    chk婚姻狀態.Checked = (Boolean)reader["婚姻狀態"];
+                    txt點數.Text = string.Format($"{(int)reader["會員點數"]}");
+                }
+                reader.Close();
+                con.Close();
+            }
+            
+        }
+
+        private void radio婚姻全部_CheckedChanged(object sender, EventArgs e)
+        {
+            sql婚姻狀態查詢語法 = "";
+        }
+
+        private void radio婚姻已婚_CheckedChanged(object sender, EventArgs e)
+        {
+            sql婚姻狀態查詢語法 = " and (婚姻狀態 = 1)";
+        }
+
+        private void radio婚姻未婚_CheckedChanged(object sender, EventArgs e)
+        {
+            sql婚姻狀態查詢語法 = " and (婚姻狀態 = 0)";
+        }
+
+        void 產生會員資料列表()
+        {
+            SqlConnection con = new SqlConnection(myDBConnectionString);
+            con.Open();
+            string StrSQL = "select Id as 會員編號, 姓名 , 電話 , email, 會員點數 ,婚姻狀態 from persons";
+            SqlCommand cmd = new SqlCommand(StrSQL,con);
+            SqlDataReader reader = cmd.ExecuteReader();
+            if(reader.HasRows)
+            {
+                DataTable dt = new DataTable();
+                dt.Load(reader);
+                dataGridView1.DataSource = dt;
+            }
+            reader.Close();
+            con.Close();
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                string strSelID = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                int intSelID = 0;                
+                bool isId = Int32.TryParse(strSelID, out intSelID);
+                if(isId)
+                {
+                    string strSQL = "select * from persons where Id = @SearchID";
+                    SqlConnection con = new SqlConnection(myDBConnectionString);
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("SearchID", intSelID);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        lblID.Text = reader["Id"].ToString();
+                        txt姓名.Text = (string)reader["姓名"];
+                        txt電話.Text = (string)reader["電話"];
+                        txt地址.Text = (string)reader["地址"];
+                        txtEmail.Text = (string)reader["email"];
+                        dtp生日.Value = (DateTime)reader["生日"];
+                        chk婚姻狀態.Checked = (Boolean)reader["婚姻狀態"];
+                        txt點數.Text = string.Format($"{(int)reader["會員點數"]}");
+                    }
+                    reader.Close();
+                    con.Close();
+                }                
             }
         }
     }

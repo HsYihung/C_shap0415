@@ -26,6 +26,11 @@ namespace drink_shop
         {
             if(txtClient.Text != ""||txtClientNum.Text!="")
             {
+                if(txtClientNum.Text != "" && !(Int32.TryParse(txtClientNum.Text,out int i )))
+                {
+                    MessageBox.Show("電話號碼格式輸入錯誤");
+                    return;
+                }
                 GlobalVar.ClientName = txtClient.Text;
                 GlobalVar.ClientNum = txtClientNum.Text;
 
@@ -33,8 +38,12 @@ namespace drink_shop
                 {
                     Form2 訂購單 = new Form2();
                     GlobalVar.訂購單 = 訂購單;
+                    GlobalVar.訂購人輸入 = this;
                 }
-                GlobalVar.訂購人輸入 = this;                          
+                else
+                {
+                    GlobalVar.訂購單.Form2show();
+                }                                         
                 GlobalVar.訂購單.Show();
                 this.Hide();
             }
