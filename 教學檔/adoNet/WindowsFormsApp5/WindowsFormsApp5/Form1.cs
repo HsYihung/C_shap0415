@@ -115,7 +115,8 @@ namespace WindowsFormsApp5
 
         private void btn新增商品_Click(object sender, EventArgs e)
         {
-
+            FormDetail myFormDetail = new FormDetail();
+            myFormDetail.ShowDialog();
         }
 
         private void btn重新載入_Click(object sender, EventArgs e)
@@ -138,6 +139,7 @@ namespace WindowsFormsApp5
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
             FormDetail myFormDetail = new FormDetail();
+            myFormDetail.pid = (int)listView1.SelectedItems[0].Tag;
             myFormDetail.ShowDialog();
         }
     }

@@ -37,18 +37,18 @@ namespace WindowsFormsApp5
             this.lbl序號 = new System.Windows.Forms.Label();
             this.txt商品名稱 = new System.Windows.Forms.TextBox();
             this.txt商品價格 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt商品描述 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btn儲存修改 = new System.Windows.Forms.Button();
+            this.groupBox修改商品 = new System.Windows.Forms.GroupBox();
             this.btn修改選取商品照片 = new System.Windows.Forms.Button();
+            this.btn儲存修改 = new System.Windows.Forms.Button();
+            this.groupBox新增商品 = new System.Windows.Forms.GroupBox();
+            this.btn選取商品照片 = new System.Windows.Forms.Button();
             this.btn新增商品 = new System.Windows.Forms.Button();
             this.btn儲存商品 = new System.Windows.Forms.Button();
-            this.btn選取商品照片 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.groupBox修改商品.SuspendLayout();
+            this.groupBox新增商品.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +65,7 @@ namespace WindowsFormsApp5
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(12, 74);
+            this.label2.Location = new System.Drawing.Point(12, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 26);
             this.label2.TabIndex = 1;
@@ -75,7 +75,7 @@ namespace WindowsFormsApp5
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(12, 113);
+            this.label3.Location = new System.Drawing.Point(12, 98);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 26);
             this.label3.TabIndex = 2;
@@ -103,18 +103,18 @@ namespace WindowsFormsApp5
             // 
             // lbl序號
             // 
-            this.lbl序號.AutoSize = true;
             this.lbl序號.Font = new System.Drawing.Font("微軟正黑體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.lbl序號.Location = new System.Drawing.Point(109, 9);
             this.lbl序號.Name = "lbl序號";
-            this.lbl序號.Size = new System.Drawing.Size(90, 26);
+            this.lbl序號.Size = new System.Drawing.Size(192, 26);
             this.lbl序號.TabIndex = 5;
             this.lbl序號.Text = "000000";
+            this.lbl序號.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // txt商品名稱
             // 
             this.txt商品名稱.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txt商品名稱.Location = new System.Drawing.Point(114, 73);
+            this.txt商品名稱.Location = new System.Drawing.Point(114, 49);
             this.txt商品名稱.Name = "txt商品名稱";
             this.txt商品名稱.Size = new System.Drawing.Size(187, 33);
             this.txt商品名稱.TabIndex = 6;
@@ -122,55 +122,52 @@ namespace WindowsFormsApp5
             // txt商品價格
             // 
             this.txt商品價格.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.txt商品價格.Location = new System.Drawing.Point(114, 112);
+            this.txt商品價格.Location = new System.Drawing.Point(114, 97);
             this.txt商品價格.Name = "txt商品價格";
             this.txt商品價格.Size = new System.Drawing.Size(187, 33);
             this.txt商品價格.TabIndex = 7;
             // 
-            // textBox3
+            // txt商品描述
             // 
-            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox3.Location = new System.Drawing.Point(114, 151);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox3.Size = new System.Drawing.Size(237, 143);
-            this.textBox3.TabIndex = 8;
+            this.txt商品描述.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txt商品描述.Location = new System.Drawing.Point(114, 151);
+            this.txt商品描述.Multiline = true;
+            this.txt商品描述.Name = "txt商品描述";
+            this.txt商品描述.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txt商品描述.Size = new System.Drawing.Size(233, 143);
+            this.txt商品描述.TabIndex = 8;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(366, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(353, 50);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(288, 244);
+            this.pictureBox1.Size = new System.Drawing.Size(301, 244);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // groupBox1
+            // groupBox修改商品
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Lavender;
-            this.groupBox1.Controls.Add(this.btn修改選取商品照片);
-            this.groupBox1.Controls.Add(this.btn儲存修改);
-            this.groupBox1.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox1.Location = new System.Drawing.Point(17, 300);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(330, 162);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "修改商品資訊";
+            this.groupBox修改商品.BackColor = System.Drawing.Color.Lavender;
+            this.groupBox修改商品.Controls.Add(this.btn修改選取商品照片);
+            this.groupBox修改商品.Controls.Add(this.btn儲存修改);
+            this.groupBox修改商品.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox修改商品.Location = new System.Drawing.Point(17, 300);
+            this.groupBox修改商品.Name = "groupBox修改商品";
+            this.groupBox修改商品.Size = new System.Drawing.Size(330, 162);
+            this.groupBox修改商品.TabIndex = 10;
+            this.groupBox修改商品.TabStop = false;
+            this.groupBox修改商品.Text = "修改商品資訊";
             // 
-            // groupBox2
+            // btn修改選取商品照片
             // 
-            this.groupBox2.BackColor = System.Drawing.Color.GreenYellow;
-            this.groupBox2.Controls.Add(this.btn選取商品照片);
-            this.groupBox2.Controls.Add(this.btn新增商品);
-            this.groupBox2.Controls.Add(this.btn儲存商品);
-            this.groupBox2.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.groupBox2.Location = new System.Drawing.Point(353, 300);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(301, 162);
-            this.groupBox2.TabIndex = 11;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "新增商品資訊";
+            this.btn修改選取商品照片.Location = new System.Drawing.Point(59, 34);
+            this.btn修改選取商品照片.Name = "btn修改選取商品照片";
+            this.btn修改選取商品照片.Size = new System.Drawing.Size(162, 40);
+            this.btn修改選取商品照片.TabIndex = 0;
+            this.btn修改選取商品照片.Text = "選取商品照片";
+            this.btn修改選取商品照片.UseVisualStyleBackColor = true;
+            this.btn修改選取商品照片.Click += new System.EventHandler(this.btn選取商品照片_Click);
             // 
             // btn儲存修改
             // 
@@ -182,15 +179,29 @@ namespace WindowsFormsApp5
             this.btn儲存修改.UseVisualStyleBackColor = true;
             this.btn儲存修改.Click += new System.EventHandler(this.btn儲存修改_Click);
             // 
-            // btn修改選取商品照片
+            // groupBox新增商品
             // 
-            this.btn修改選取商品照片.Location = new System.Drawing.Point(59, 34);
-            this.btn修改選取商品照片.Name = "btn修改選取商品照片";
-            this.btn修改選取商品照片.Size = new System.Drawing.Size(162, 40);
-            this.btn修改選取商品照片.TabIndex = 0;
-            this.btn修改選取商品照片.Text = "選取商品照片";
-            this.btn修改選取商品照片.UseVisualStyleBackColor = true;
-            this.btn修改選取商品照片.Click += new System.EventHandler(this.btn選取商品照片_Click);
+            this.groupBox新增商品.BackColor = System.Drawing.Color.GreenYellow;
+            this.groupBox新增商品.Controls.Add(this.btn選取商品照片);
+            this.groupBox新增商品.Controls.Add(this.btn新增商品);
+            this.groupBox新增商品.Controls.Add(this.btn儲存商品);
+            this.groupBox新增商品.Font = new System.Drawing.Font("微軟正黑體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox新增商品.Location = new System.Drawing.Point(353, 300);
+            this.groupBox新增商品.Name = "groupBox新增商品";
+            this.groupBox新增商品.Size = new System.Drawing.Size(301, 162);
+            this.groupBox新增商品.TabIndex = 11;
+            this.groupBox新增商品.TabStop = false;
+            this.groupBox新增商品.Text = "新增商品資訊";
+            // 
+            // btn選取商品照片
+            // 
+            this.btn選取商品照片.Location = new System.Drawing.Point(46, 66);
+            this.btn選取商品照片.Name = "btn選取商品照片";
+            this.btn選取商品照片.Size = new System.Drawing.Size(199, 40);
+            this.btn選取商品照片.TabIndex = 1;
+            this.btn選取商品照片.Text = "選取商品照片";
+            this.btn選取商品照片.UseVisualStyleBackColor = true;
+            this.btn選取商品照片.Click += new System.EventHandler(this.btn選取商品照片_Click);
             // 
             // btn新增商品
             // 
@@ -212,26 +223,16 @@ namespace WindowsFormsApp5
             this.btn儲存商品.UseVisualStyleBackColor = true;
             this.btn儲存商品.Click += new System.EventHandler(this.btn儲存商品_Click);
             // 
-            // btn選取商品照片
-            // 
-            this.btn選取商品照片.Location = new System.Drawing.Point(46, 66);
-            this.btn選取商品照片.Name = "btn選取商品照片";
-            this.btn選取商品照片.Size = new System.Drawing.Size(199, 40);
-            this.btn選取商品照片.TabIndex = 1;
-            this.btn選取商品照片.Text = "選取商品照片";
-            this.btn選取商品照片.UseVisualStyleBackColor = true;
-            this.btn選取商品照片.Click += new System.EventHandler(this.btn選取商品照片_Click);
-            // 
             // FormDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PeachPuff;
             this.ClientSize = new System.Drawing.Size(666, 474);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox新增商品);
+            this.Controls.Add(this.groupBox修改商品);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt商品描述);
             this.Controls.Add(this.txt商品價格);
             this.Controls.Add(this.txt商品名稱);
             this.Controls.Add(this.lbl序號);
@@ -242,9 +243,10 @@ namespace WindowsFormsApp5
             this.Controls.Add(this.label1);
             this.Name = "FormDetail";
             this.Text = "商品詳細資訊";
+            this.Load += new System.EventHandler(this.FormDetail_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
+            this.groupBox修改商品.ResumeLayout(false);
+            this.groupBox新增商品.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -260,12 +262,12 @@ namespace WindowsFormsApp5
         private System.Windows.Forms.Label lbl序號;
         private System.Windows.Forms.TextBox txt商品名稱;
         private System.Windows.Forms.TextBox txt商品價格;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt商品描述;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox修改商品;
         private System.Windows.Forms.Button btn修改選取商品照片;
         private System.Windows.Forms.Button btn儲存修改;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox新增商品;
         private System.Windows.Forms.Button btn選取商品照片;
         private System.Windows.Forms.Button btn新增商品;
         private System.Windows.Forms.Button btn儲存商品;

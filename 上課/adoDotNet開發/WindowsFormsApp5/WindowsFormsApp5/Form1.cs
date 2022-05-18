@@ -17,6 +17,7 @@ namespace WindowsFormsApp5
         List<string> listName = new List<string>();
         List<int> listPrice = new List<int>();
         List<int> listId = new List<int>();
+
         public Form1()
         {
             InitializeComponent();
@@ -106,7 +107,8 @@ namespace WindowsFormsApp5
 
         private void btn新增商品_Click(object sender, EventArgs e)
         {
-
+            FormDetail myFormDetail = new FormDetail();            
+            myFormDetail.ShowDialog();
         }
 
         private void btn重新載入_Click(object sender, EventArgs e)
@@ -134,6 +136,7 @@ namespace WindowsFormsApp5
         private void listView1_ItemActivate(object sender, EventArgs e)
         {
             FormDetail myFormDetail = new FormDetail();
+            myFormDetail.pID = (int)listView1.SelectedItems[0].Tag;
             myFormDetail.ShowDialog();
         }
     }

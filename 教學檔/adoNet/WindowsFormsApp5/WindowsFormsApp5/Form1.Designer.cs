@@ -42,9 +42,10 @@ namespace WindowsFormsApp5
             // 
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 12);
+            this.listView1.Location = new System.Drawing.Point(8, 8);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(589, 626);
+            this.listView1.Size = new System.Drawing.Size(394, 419);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.ItemActivate += new System.EventHandler(this.listView1_ItemActivate);
@@ -52,9 +53,10 @@ namespace WindowsFormsApp5
             // btn圖片模式
             // 
             this.btn圖片模式.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn圖片模式.Location = new System.Drawing.Point(620, 345);
+            this.btn圖片模式.Location = new System.Drawing.Point(413, 230);
+            this.btn圖片模式.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn圖片模式.Name = "btn圖片模式";
-            this.btn圖片模式.Size = new System.Drawing.Size(168, 61);
+            this.btn圖片模式.Size = new System.Drawing.Size(112, 41);
             this.btn圖片模式.TabIndex = 1;
             this.btn圖片模式.Text = "圖片模式";
             this.btn圖片模式.UseVisualStyleBackColor = true;
@@ -63,9 +65,10 @@ namespace WindowsFormsApp5
             // btn列表模式
             // 
             this.btn列表模式.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn列表模式.Location = new System.Drawing.Point(620, 423);
+            this.btn列表模式.Location = new System.Drawing.Point(413, 282);
+            this.btn列表模式.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn列表模式.Name = "btn列表模式";
-            this.btn列表模式.Size = new System.Drawing.Size(168, 61);
+            this.btn列表模式.Size = new System.Drawing.Size(112, 41);
             this.btn列表模式.TabIndex = 2;
             this.btn列表模式.Text = "列表模式";
             this.btn列表模式.UseVisualStyleBackColor = true;
@@ -74,9 +77,10 @@ namespace WindowsFormsApp5
             // btn新增商品
             // 
             this.btn新增商品.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn新增商品.Location = new System.Drawing.Point(620, 501);
+            this.btn新增商品.Location = new System.Drawing.Point(413, 334);
+            this.btn新增商品.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn新增商品.Name = "btn新增商品";
-            this.btn新增商品.Size = new System.Drawing.Size(168, 61);
+            this.btn新增商品.Size = new System.Drawing.Size(112, 41);
             this.btn新增商品.TabIndex = 3;
             this.btn新增商品.Text = "新增商品";
             this.btn新增商品.UseVisualStyleBackColor = true;
@@ -85,9 +89,10 @@ namespace WindowsFormsApp5
             // btn重新載入
             // 
             this.btn重新載入.Font = new System.Drawing.Font("微軟正黑體", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btn重新載入.Location = new System.Drawing.Point(620, 577);
+            this.btn重新載入.Location = new System.Drawing.Point(413, 385);
+            this.btn重新載入.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btn重新載入.Name = "btn重新載入";
-            this.btn重新載入.Size = new System.Drawing.Size(168, 61);
+            this.btn重新載入.Size = new System.Drawing.Size(112, 41);
             this.btn重新載入.TabIndex = 4;
             this.btn重新載入.Text = "重新載入";
             this.btn重新載入.UseVisualStyleBackColor = true;
@@ -101,15 +106,16 @@ namespace WindowsFormsApp5
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.PaleTurquoise;
-            this.ClientSize = new System.Drawing.Size(800, 650);
+            this.ClientSize = new System.Drawing.Size(533, 433);
             this.Controls.Add(this.btn重新載入);
             this.Controls.Add(this.btn新增商品);
             this.Controls.Add(this.btn列表模式);
             this.Controls.Add(this.btn圖片模式);
             this.Controls.Add(this.listView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "商品資料庫";
             this.Load += new System.EventHandler(this.Form1_Load);
