@@ -1,0 +1,15 @@
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\bin\Debug\Store management.exe.config
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\bin\Debug\Store management.exe
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\bin\Debug\Store management.pdb
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store management.csproj.AssemblyReference.cache
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store_management.Form1.resources
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store_management.Form2.resources
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store_management.Properties.Resources.resources
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store management.csproj.GenerateResource.cache
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store management.csproj.CoreCompileInputs.cache
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store management.exe
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store management.pdb
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store_management.Forms.FormStock.resources
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store_management.Forms.FormStore.resources
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store_management.Forms.FormDrink.resources
+C:\Users\iii\Desktop\C_shap\上課\專題\Store management\Store management\obj\Debug\Store_management.Forms.FormOrder.resources

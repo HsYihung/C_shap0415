@@ -76,7 +76,9 @@ namespace drink_shop
         private void cboxDSChoose_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cboxDSChoose.SelectedIndex;
-            myShop = new shop(listShopID[index]);            
+            myShop = new shop(listShopID[index]);
+            lboxDrink.Items.Clear();
+            lboxFeed.Items.Clear();
             foreach (Drink item in myShop.listDrink)
             {
                 string strItem = item.name;
@@ -263,6 +265,12 @@ namespace drink_shop
         {
             lblClient.Text = GlobalVar.ClientName;
             lblClientNum.Text = GlobalVar.ClientNum;
+        }
+
+        private void btnModifyUser_Click(object sender, EventArgs e)
+        {
+            ModifyUser modifyUser = new ModifyUser();
+            modifyUser.ShowDialog();
         }
     }
 }

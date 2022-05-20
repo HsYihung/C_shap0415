@@ -56,6 +56,7 @@ namespace drink_shop
             this.label14 = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
+            this.btnModifyUser = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -218,7 +219,7 @@ namespace drink_shop
             this.btnJoinOrder.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnJoinOrder.Location = new System.Drawing.Point(21, 600);
             this.btnJoinOrder.Name = "btnJoinOrder";
-            this.btnJoinOrder.Size = new System.Drawing.Size(153, 38);
+            this.btnJoinOrder.Size = new System.Drawing.Size(130, 38);
             this.btnJoinOrder.TabIndex = 16;
             this.btnJoinOrder.Text = "加入訂購單";
             this.btnJoinOrder.UseVisualStyleBackColor = true;
@@ -227,9 +228,9 @@ namespace drink_shop
             // btnCheckOrder
             // 
             this.btnCheckOrder.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnCheckOrder.Location = new System.Drawing.Point(189, 600);
+            this.btnCheckOrder.Location = new System.Drawing.Point(157, 600);
             this.btnCheckOrder.Name = "btnCheckOrder";
-            this.btnCheckOrder.Size = new System.Drawing.Size(153, 38);
+            this.btnCheckOrder.Size = new System.Drawing.Size(130, 38);
             this.btnCheckOrder.TabIndex = 17;
             this.btnCheckOrder.Text = "查看訂購單";
             this.btnCheckOrder.UseVisualStyleBackColor = true;
@@ -238,9 +239,9 @@ namespace drink_shop
             // btnClient
             // 
             this.btnClient.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnClient.Location = new System.Drawing.Point(357, 600);
+            this.btnClient.Location = new System.Drawing.Point(293, 600);
             this.btnClient.Name = "btnClient";
-            this.btnClient.Size = new System.Drawing.Size(153, 38);
+            this.btnClient.Size = new System.Drawing.Size(130, 38);
             this.btnClient.TabIndex = 18;
             this.btnClient.Text = "切換使用者";
             this.btnClient.UseVisualStyleBackColor = true;
@@ -337,12 +338,24 @@ namespace drink_shop
             this.label16.TabIndex = 25;
             this.label16.Text = "總價 :";
             // 
+            // btnModifyUser
+            // 
+            this.btnModifyUser.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnModifyUser.Location = new System.Drawing.Point(429, 599);
+            this.btnModifyUser.Name = "btnModifyUser";
+            this.btnModifyUser.Size = new System.Drawing.Size(130, 38);
+            this.btnModifyUser.TabIndex = 28;
+            this.btnModifyUser.Text = "修改帳號資訊";
+            this.btnModifyUser.UseVisualStyleBackColor = true;
+            this.btnModifyUser.Click += new System.EventHandler(this.btnModifyUser_Click);
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(614, 675);
+            this.Controls.Add(this.btnModifyUser);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.label16);
@@ -409,5 +422,6 @@ namespace drink_shop
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btnModifyUser;
     }
 }

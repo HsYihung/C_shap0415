@@ -22,3 +22,5 @@ C:\Users\iii\Desktop\C_shap\上課\專題\drink shop\drink shop\obj\Debug\drink 
 C:\Users\iii\Desktop\C_shap\上課\專題\drink shop\drink shop\obj\Debug\drink shop.csproj.CoreCompileInputs.cache
 C:\Users\iii\Desktop\C_shap\上課\專題\drink shop\drink shop\obj\Debug\drink shop.exe
 C:\Users\iii\Desktop\C_shap\上課\專題\drink shop\drink shop\obj\Debug\drink shop.pdb
+C:\Users\iii\Desktop\C_shap\上課\專題\drink shop\drink shop\obj\Debug\drink_shop.newUser.resources
+C:\Users\iii\Desktop\C_shap\上課\專題\drink shop\drink shop\obj\Debug\drink_shop.ModifyUser.resources

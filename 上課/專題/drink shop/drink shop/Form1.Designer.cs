@@ -105,7 +105,7 @@ namespace drink_shop
             // btnQuit
             // 
             this.btnQuit.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnQuit.Location = new System.Drawing.Point(166, 240);
+            this.btnQuit.Location = new System.Drawing.Point(170, 249);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(52, 24);
             this.btnQuit.TabIndex = 6;
@@ -115,10 +115,10 @@ namespace drink_shop
             // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.button1.Location = new System.Drawing.Point(20, 231);
+            this.button1.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.button1.Location = new System.Drawing.Point(3, 249);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 33);
+            this.button1.Size = new System.Drawing.Size(80, 24);
             this.button1.TabIndex = 7;
             this.button1.Text = "新增使用者";
             this.button1.UseVisualStyleBackColor = true;
@@ -129,7 +129,7 @@ namespace drink_shop
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.MintCream;
-            this.ClientSize = new System.Drawing.Size(222, 275);
+            this.ClientSize = new System.Drawing.Size(225, 275);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnClear);

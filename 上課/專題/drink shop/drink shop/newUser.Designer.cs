@@ -34,11 +34,11 @@ namespace drink_shop
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtPassWord = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.txtPassWordConfirn = new System.Windows.Forms.TextBox();
             this.txtAccount = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtPhone = new System.Windows.Forms.TextBox();
             this.btn確認 = new System.Windows.Forms.Button();
             this.btn退出 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -93,29 +93,31 @@ namespace drink_shop
             this.label5.TabIndex = 4;
             this.label5.Text = "密碼確認";
             // 
-            // textBox1
+            // txtPassWord
             // 
-            this.textBox1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox1.Location = new System.Drawing.Point(93, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 29);
-            this.textBox1.TabIndex = 5;
+            this.txtPassWord.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtPassWord.Location = new System.Drawing.Point(93, 91);
+            this.txtPassWord.Name = "txtPassWord";
+            this.txtPassWord.PasswordChar = '*';
+            this.txtPassWord.Size = new System.Drawing.Size(149, 29);
+            this.txtPassWord.TabIndex = 5;
             // 
-            // textBox2
+            // txtName
             // 
-            this.textBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox2.Location = new System.Drawing.Point(93, 232);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(149, 29);
-            this.textBox2.TabIndex = 6;
+            this.txtName.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtName.Location = new System.Drawing.Point(93, 232);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(149, 29);
+            this.txtName.TabIndex = 6;
             // 
-            // textBox3
+            // txtPassWordConfirn
             // 
-            this.textBox3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox3.Location = new System.Drawing.Point(93, 159);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(149, 29);
-            this.textBox3.TabIndex = 7;
+            this.txtPassWordConfirn.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtPassWordConfirn.Location = new System.Drawing.Point(93, 159);
+            this.txtPassWordConfirn.Name = "txtPassWordConfirn";
+            this.txtPassWordConfirn.PasswordChar = '*';
+            this.txtPassWordConfirn.Size = new System.Drawing.Size(149, 29);
+            this.txtPassWordConfirn.TabIndex = 7;
             // 
             // txtAccount
             // 
@@ -125,13 +127,13 @@ namespace drink_shop
             this.txtAccount.Size = new System.Drawing.Size(149, 29);
             this.txtAccount.TabIndex = 8;
             // 
-            // textBox5
+            // txtPhone
             // 
-            this.textBox5.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.textBox5.Location = new System.Drawing.Point(93, 306);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(149, 29);
-            this.textBox5.TabIndex = 9;
+            this.txtPhone.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.txtPhone.Location = new System.Drawing.Point(93, 306);
+            this.txtPhone.Name = "txtPhone";
+            this.txtPhone.Size = new System.Drawing.Size(149, 29);
+            this.txtPhone.TabIndex = 9;
             // 
             // btn確認
             // 
@@ -163,11 +165,11 @@ namespace drink_shop
             this.ClientSize = new System.Drawing.Size(259, 423);
             this.Controls.Add(this.btn退出);
             this.Controls.Add(this.btn確認);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.txtAccount);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtPassWordConfirn);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.txtPassWord);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -190,11 +192,11 @@ namespace drink_shop
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtPassWord;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.TextBox txtPassWordConfirn;
         private System.Windows.Forms.TextBox txtAccount;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.Button btn確認;
         private System.Windows.Forms.Button btn退出;
     }
