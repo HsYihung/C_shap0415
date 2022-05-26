@@ -30,7 +30,7 @@ namespace Store_management.Forms
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboxOptions = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -47,14 +47,14 @@ namespace Store_management.Forms
             this.lblTitle.TabIndex = 2;
             this.lblTitle.Text = "選項";
             // 
-            // comboBox1
+            // cboxOptions
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(14, 38);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(206, 29);
-            this.comboBox1.TabIndex = 3;
+            this.cboxOptions.FormattingEnabled = true;
+            this.cboxOptions.Location = new System.Drawing.Point(14, 38);
+            this.cboxOptions.Margin = new System.Windows.Forms.Padding(5);
+            this.cboxOptions.Name = "cboxOptions";
+            this.cboxOptions.Size = new System.Drawing.Size(206, 29);
+            this.cboxOptions.TabIndex = 3;
             // 
             // listView1
             // 
@@ -92,12 +92,13 @@ namespace Store_management.Forms
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cboxOptions);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "FormOrder";
             this.Text = "FormOrder";
+            this.Load += new System.EventHandler(this.FormOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,7 +107,7 @@ namespace Store_management.Forms
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboxOptions;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;

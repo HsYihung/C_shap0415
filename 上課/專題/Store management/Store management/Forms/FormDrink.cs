@@ -35,6 +35,7 @@ namespace Store_management.Forms
             model.readDrink();
             txtName.Clear();
             txtPrice.Clear();
+            model.actionIndex = -1;
         }
 
         private void listView1_Click(object sender, EventArgs e)

@@ -16,5 +16,16 @@ namespace Store_management.Forms
         {
             InitializeComponent();
         }
+
+        private void FormOrder_Load(object sender, EventArgs e)
+        {
+            model model = new model();
+            model = new model();
+            cboxOptions.Items.Add("查看新訂單");
+            cboxOptions.Items.Add("查看所有訂單");
+            model.actionFrom(cboxOptions, listView1);
+            cboxOptions.SelectedIndex = 0;
+            model.readStock();
+        }
     }
 }

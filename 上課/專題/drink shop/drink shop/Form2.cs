@@ -149,6 +149,7 @@ namespace drink_shop
         private void btnFeedClear_Click(object sender, EventArgs e)
         {
             fPrice = 0;
+            feedName = "";
             lboxFeed.SelectedItems.Clear();
             顯示價格();
         }
@@ -183,13 +184,16 @@ namespace drink_shop
                 MessageBox.Show("所選飲料庫存不足");
                 return;
             }
-            if(quantity > myShop.listFeed[lboxFeed.SelectedIndex].stock)
+            if (fPrice==0)
             {
-                MessageBox.Show("所選配料庫存不足");
-                return;
+                if (quantity > myShop.listFeed[lboxFeed.SelectedIndex].stock)
+                {
+                    MessageBox.Show("所選配料庫存不足");
+                    myShop.listFeed[lboxFeed.SelectedIndex].stock -= quantity;
+                    return;
+                }
             }
-            myShop.listDrink[lboxDrink.SelectedIndex].stock -= quantity;
-            myShop.listFeed[lboxFeed.SelectedIndex].stock -= quantity;
+            myShop.listDrink[lboxDrink.SelectedIndex].stock -= quantity;            
             Order order = new Order();
             order.shopName = cboxDSChoose.SelectedItem.ToString();
             order.shopID = listShopID[cboxDSChoose.SelectedIndex];            

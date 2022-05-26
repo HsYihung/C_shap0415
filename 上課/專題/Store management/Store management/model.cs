@@ -16,7 +16,7 @@ namespace Store_management
         SqlConnection con;
         ListView actionListView;
         ComboBox actionComboBox;
-        int actionIndex = -1;
+        public int actionIndex = -1;
         public model()
         {
             con = new SqlConnection(linkSql.myDBConnectionString);            
@@ -341,12 +341,12 @@ namespace Store_management
         }
         public void seveModify(TextBox txtName , TextBox txtPrice)
         {
-            if (actionIndex == -1)
-            {
-                return;
-            }
             if (actionComboBox.SelectedIndex == 0)
             {
+                if (actionIndex == -1)
+                {
+                    return;
+                }
                 con.Open();                
                 string strSQL = $"update Drink set DrinkName = @newName , Price = @newPrice Where DrinkID = {actionIndex}";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
@@ -359,6 +359,10 @@ namespace Store_management
             }
             else if (actionComboBox.SelectedIndex == 1)
             {
+                if (actionIndex == -1)
+                {
+                    return;
+                }
                 con.Open();
                 string strSQL = $"update Feed set FeedName = @newName , Price = @newPrice Where FeedID = {actionIndex}";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
@@ -402,6 +406,31 @@ namespace Store_management
             else
             {
                 con.Open();
+                string strSQL = $"select FeedName From Feed where ShopID = {GlobalVar.storeID}";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    if ((string)reader["FeedName"] != txtName.Text)
+                    {
+                        reader.Close();
+                        strSQL = $"insert into Feed values ({GlobalVar.storeID},@newName,@newPrice,0)";
+                        cmd = new SqlCommand(strSQL, con);
+                        cmd.Parameters.AddWithValue("@newName", txtName.Text);
+                        cmd.Parameters.AddWithValue("@newPrice", txtPrice.Text);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("新增配料成功");
+                    }
+                    else
+                    {
+                        reader.Close();
+                        MessageBox.Show("已有此配料");
+                    }
+                }
+                else
+                {
+                    reader.Close();
+                }
                 con.Close();
             }
         }
