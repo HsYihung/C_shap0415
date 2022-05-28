@@ -25,6 +25,8 @@ namespace Store_management.Forms
             cboxOptions.Items.Add("修改配料");
             cboxOptions.Items.Add("新增飲品");
             cboxOptions.Items.Add("新增配料");
+            cboxOptions.Items.Add("下架飲品");
+            cboxOptions.Items.Add("下架配料");
             model.actionFrom(cboxOptions, listView1);
             cboxOptions.SelectedIndex = 0;
             model.readDrink();
@@ -36,11 +38,37 @@ namespace Store_management.Forms
             txtName.Clear();
             txtPrice.Clear();
             model.actionIndex = -1;
+            if(cboxOptions.SelectedIndex == 2||cboxOptions.SelectedIndex==3)
+            {
+                listView1.Enabled = false;
+            }
+            else
+            {
+                listView1.Enabled = true;
+            }
+            if(cboxOptions.SelectedIndex==4|| cboxOptions.SelectedIndex == 5)
+            {
+                label3.Visible = false;
+                txtPrice.Visible = false;
+                txtName.Enabled = false;
+                btnDel.Visible = true;
+                btnReModify.Visible = false;
+                btnSeveModify.Visible = false;
+            }
+            else
+            {
+                label3.Visible = true;
+                txtPrice.Visible = true;
+                txtName.Enabled = true;
+                btnDel.Visible = false;
+                btnReModify.Visible = true;
+                btnSeveModify.Visible = true;
+            }
+
         }
 
         private void listView1_Click(object sender, EventArgs e)
-        {
-           
+        {           
                 model.selectDrink(txtName, txtPrice);            
         }
 
@@ -55,6 +83,11 @@ namespace Store_management.Forms
         private void btnReModify_Click(object sender, EventArgs e)
         {
             model.selectDrink(txtName, txtPrice);
+        }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            model.delDrink(txtName, txtPrice);
         }
     }
 }

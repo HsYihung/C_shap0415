@@ -16,7 +16,7 @@ namespace drink_shop
         {
             SqlConnection con = new SqlConnection(linksql.myDBConnectionString);
             con.Open();
-            string strSQL = $"select * from Drink where ShopID = @shopID order by Price";
+            string strSQL = $"select DrinkID,DrinkName,Price,(select (d.Stock-isnull(sum(Quantity),0)) from [Order] where DrinkID = d.DrinkID) as Stock from Drink as d where ShopID = @shopID order by Price";
             SqlCommand cmd = new SqlCommand(strSQL, con);
             cmd.Parameters.AddWithValue("@shopID", shopID);
             SqlDataReader reader = cmd.ExecuteReader();
@@ -27,10 +27,11 @@ namespace drink_shop
                 drink.name = (string)reader["DrinkName"];
                 drink.price = (int)reader["Price"];
                 drink.stock = (int)reader["Stock"];
+                Console.WriteLine((int)reader["Stock"]);
                 listDrink.Add(drink);
             }
             reader.Close();
-            strSQL = "select * from Feed where ShopID = @shopID order by Price";
+            strSQL = "select FeedID,FeedName,Price ,(select (f.Stock - isnull(sum(Quantity),0)) from [Order] where FeedID = f.FeedID ) as Stock from Feed as f where ShopID = @shopID order by Price";
             cmd = new SqlCommand(strSQL, con);
             cmd.Parameters.AddWithValue("@shopID", shopID);
             reader = cmd.ExecuteReader();
@@ -41,6 +42,7 @@ namespace drink_shop
                 feed.name = (string)reader["FeedName"];
                 feed.price = (int)reader["Price"];
                 feed.stock = (int)reader["Stock"];
+                Console.WriteLine((int)reader["Stock"]);
                 listFeed.Add(feed);
             }
             reader.Close();

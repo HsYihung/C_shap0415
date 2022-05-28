@@ -67,7 +67,6 @@
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalVar.cs" />
-    <Compile Include="IShop.cs" />
     <Compile Include="linksql.cs" />
     <Compile Include="ModifyUser.cs">
       <SubType>Form</SubType>

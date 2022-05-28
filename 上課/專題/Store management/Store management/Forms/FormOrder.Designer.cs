@@ -32,8 +32,8 @@ namespace Store_management.Forms
             this.lblTitle = new System.Windows.Forms.Label();
             this.cboxOptions = new System.Windows.Forms.ComboBox();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -55,6 +55,7 @@ namespace Store_management.Forms
             this.cboxOptions.Name = "cboxOptions";
             this.cboxOptions.Size = new System.Drawing.Size(206, 29);
             this.cboxOptions.TabIndex = 3;
+            this.cboxOptions.SelectedIndexChanged += new System.EventHandler(this.cboxOptions_SelectedIndexChanged);
             // 
             // listView1
             // 
@@ -65,23 +66,25 @@ namespace Store_management.Forms
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // button3
+            // btnAccept
             // 
-            this.button3.Location = new System.Drawing.Point(442, 286);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 39);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "確認訂單";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAccept.Location = new System.Drawing.Point(442, 286);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(98, 39);
+            this.btnAccept.TabIndex = 9;
+            this.btnAccept.Text = "確認訂單";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Location = new System.Drawing.Point(315, 286);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 39);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "取消訂單";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCancel.Location = new System.Drawing.Point(315, 286);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(98, 39);
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "取消訂單";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // FormOrder
             // 
@@ -89,8 +92,8 @@ namespace Store_management.Forms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(552, 354);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnAccept);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.cboxOptions);
             this.Controls.Add(this.lblTitle);
@@ -109,7 +112,7 @@ namespace Store_management.Forms
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.ComboBox cboxOptions;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

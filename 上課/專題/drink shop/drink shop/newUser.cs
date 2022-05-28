@@ -44,7 +44,7 @@ namespace drink_shop
                     if(!(reader.Read()))
                     {
                         reader.Close();
-                        strSQL = "insert UserInfo values (@acc,@pass,@name,@phone)";
+                        strSQL = "insert UserInfo (Account,Password,Name,PhoneNumber) values (@acc,@pass,@name,@phone)";
                         cmd = new SqlCommand(strSQL, con);
                         cmd.Parameters.AddWithValue("@acc",txtAccount.Text);
                         cmd.Parameters.AddWithValue("@pass",txtPassWord.Text);

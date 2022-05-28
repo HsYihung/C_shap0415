@@ -256,7 +256,7 @@ namespace Store_management
             actionListView.Columns.Add("價格", 70);
             actionListView.FullRowSelect = true;
             int i = 0;
-            if(actionComboBox.SelectedIndex == 0)
+            if(actionComboBox.SelectedIndex == 0|| actionComboBox.SelectedIndex == 2 || actionComboBox.SelectedIndex == 4)
             {
                 con.Open();
                 string strSQL = $"select DrinkID, DrinkName , Price From Drink where ShopID = {GlobalVar.storeID}";
@@ -277,7 +277,7 @@ namespace Store_management
                 con.Close();
 
             }
-            else if(actionComboBox.SelectedIndex == 1)
+            else if(actionComboBox.SelectedIndex == 1|| actionComboBox.SelectedIndex == 3 || actionComboBox.SelectedIndex == 5)
             {
                 con.Open();
                 string strSQL = $"select FeedID, FeedName , Price From Feed where ShopID = {GlobalVar.storeID}";
@@ -296,17 +296,13 @@ namespace Store_management
                 }
                 reader.Close();
                 con.Close();
-            }
-            else
-            {
-
-            }            
+            }         
         }
         public void selectDrink(TextBox txtName,TextBox txtPrice)
         {
 
             actionIndex = (int)actionListView.SelectedItems[0].Tag;
-            if (actionComboBox.SelectedIndex == 0)
+            if (actionComboBox.SelectedIndex == 0|| actionComboBox.SelectedIndex == 4)
             {
                 con.Open();
                 string strSQL = $"select DrinkName , Price From Drink where DrinkID = {actionListView.SelectedItems[0].Tag}";
@@ -320,7 +316,7 @@ namespace Store_management
                 reader.Close();
                 con.Close();
             }
-            else if (actionComboBox.SelectedIndex == 1)
+            else if (actionComboBox.SelectedIndex == 1 || actionComboBox.SelectedIndex == 5)
             {
                 con.Open();
                 string strSQL = $"select FeedName , Price From Feed where FeedID = {actionListView.SelectedItems[0].Tag}";
@@ -339,6 +335,8 @@ namespace Store_management
 
             }
         }
+        
+
         public void seveModify(TextBox txtName , TextBox txtPrice)
         {
             if (actionComboBox.SelectedIndex == 0)
@@ -390,18 +388,22 @@ namespace Store_management
                         cmd.Parameters.AddWithValue("@newPrice",txtPrice.Text);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("新增飲品成功");
+                        con.Close();
+                        readDrink();
                     }
                     else
                     {
                         reader.Close();
-                        MessageBox.Show("已有此飲品");
+                        con.Close();
+                        MessageBox.Show("已有此飲品");                        
                     }
                 }
                 else
                 {
                     reader.Close();
+                    con.Close();
                 }
-                con.Close();
+                
             }
             else
             {
@@ -420,20 +422,189 @@ namespace Store_management
                         cmd.Parameters.AddWithValue("@newPrice", txtPrice.Text);
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("新增配料成功");
+                        con.Close();
+                        readDrink();
                     }
                     else
                     {
                         reader.Close();
-                        MessageBox.Show("已有此配料");
+                        con.Close();
+                        MessageBox.Show("已有此配料");                        
                     }
                 }
                 else
                 {
                     reader.Close();
+                    con.Close();
+                }                
+            }
+        }
+
+        public void delDrink(TextBox txtName, TextBox txtPrice)
+        {
+            if (actionIndex != -1)
+            {
+                if (actionComboBox.SelectedIndex == 4)
+                {
+                    con.Open();
+                    string strSQL = $"delete Drink where drinkID = {actionListView.SelectedItems[0].Tag}";
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    readDrink();
+                    actionIndex = -1;
                 }
-                con.Close();
+                else
+                {
+                    con.Open();
+                    string strSQL = $"delete Feed where FeedID = {actionListView.SelectedItems[0].Tag}";
+                    SqlCommand cmd = new SqlCommand(strSQL, con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                    readDrink();
+                    actionIndex = -1;
+                }
             }
         }
         
+        public void readOrder()
+        {
+            actionListView.Clear();
+            actionListView.SmallImageList = null;
+            actionListView.View = View.Details;
+            actionListView.Columns.Add("", 35);
+            actionListView.Columns.Add("訂購人",70);            
+            actionListView.Columns.Add("飲料",80);
+            actionListView.Columns.Add("加料", 50);
+            actionListView.Columns.Add("甜度", 50);
+            actionListView.Columns.Add("冰塊", 50);
+            actionListView.Columns.Add("杯數", 50);
+            actionListView.Columns.Add("總價", 80);
+            actionListView.Columns.Add("訂購時間", 200);
+            actionListView.FullRowSelect = true;
+            int i = 0;
+            if(actionComboBox.SelectedIndex == 0)
+            {
+                con.Open();
+                string strSQL = $"select ID,(select Name from UserInfo where UserID = od.UserID) as Name,(select DrinkName from Drink where DrinkID = od.DrinkID)as DrinkName,(select FeedName from Feed where FeedID = od.FeedID) as FeedName,ice,surgar,Quantity,((select Price from Drink where DrinkID = od.DrinkID)+(select Price from Feed where FeedID = od.FeedID)*Quantity) as totalPrice,OrderDate from [Order] as od where ShopID = {GlobalVar.storeID} and OrderConfirm =0";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    i++;
+                    ListViewItem item = new ListViewItem();
+                    item.Font = new Font("微軟正黑體", 11, FontStyle.Regular);
+                    item.Text = i.ToString();
+                    item.SubItems.Add((string)reader["Name"]);
+                    item.SubItems.Add((string)reader["DrinkName"]);
+                    item.SubItems.Add((string)reader["FeedName"]);
+                    item.SubItems.Add((string)reader["surgar"]);
+                    item.SubItems.Add((string)reader["ice"]);
+                    item.SubItems.Add(reader["Quantity"].ToString());
+                    item.SubItems.Add(reader["totalPrice"].ToString());
+                    item.SubItems.Add(string.Format($"{reader["OrderDate"]:yy/MM/dd H:mm:ss}"));
+                    item.Tag = (int)reader["ID"];
+                    actionListView.Items.Add(item);
+                }
+                reader.Close();
+                con.Close();
+            }
+            else
+            {
+                con.Open();
+                string strSQL = $"select ID,(select Name from UserInfo where UserID = od.UserID) as Name,(select DrinkName from Drink where DrinkID = od.DrinkID)as DrinkName,(select FeedName from Feed where FeedID = od.FeedID) as FeedName,ice,surgar,Quantity,((select Price from Drink where DrinkID = od.DrinkID)+(select Price from Feed where FeedID = od.FeedID)*Quantity) as totalPrice,OrderDate from [Order] as od where ShopID = {GlobalVar.storeID}";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    i++;
+                    ListViewItem item = new ListViewItem();
+                    item.Font = new Font("微軟正黑體", 11, FontStyle.Regular);
+                    item.Text = i.ToString();
+                    item.SubItems.Add((string)reader["Name"]);
+                    item.SubItems.Add((string)reader["DrinkName"]);
+                    item.SubItems.Add((string)reader["FeedName"]);
+                    item.SubItems.Add((string)reader["surgar"]);
+                    item.SubItems.Add((string)reader["ice"]);
+                    item.SubItems.Add(reader["Quantity"].ToString());
+                    item.SubItems.Add(reader["totalPrice"].ToString());
+                    item.SubItems.Add(string.Format($"{reader["OrderDate"]:yy/MM/dd H:mm:ss}"));
+                    item.Tag = (int)reader["ID"];
+                    actionListView.Items.Add(item);
+                }
+                reader.Close();
+                con.Close();
+            }
+        }
+        public void acceptOrder()
+        {           
+            con.Open();
+            for(int i = 0; i<actionListView.SelectedItems.Count;i++)
+            {
+                string strSQL = $"select DrinkID,FeedID,Quantity from [Order] where ID = {actionListView.SelectedItems[i].Tag}";
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                int DrinkID = 0;
+                int FeedID = 0;
+                int Quantity = 0;
+                int DrinkStock = 0;
+                int FeedStock = 0;
+                if (reader.Read())
+                {
+                    DrinkID = (int)reader["DrinkID"];
+                    FeedID = (int)reader["FeedID"];
+                    Quantity = (int)reader["Quantity"];
+                }
+                reader.Close();
+                strSQL = $"declare @DrinkStock int; declare @FeedStock int;select @DrinkStock = Stock from Drink where DrinkID= {DrinkID};select @FeedStock = Stock from Feed where FeedID= {FeedID}; select @DrinkStock as DrinkStock , @FeedStock as FeedStock;";
+                cmd = new SqlCommand(strSQL, con);
+                reader = cmd.ExecuteReader();
+                if(reader.Read())
+                {
+                    if(Quantity>(int)reader["DrinkStock"])
+                    {                        
+                        reader.Close();
+                        strSQL = $"update [Order] set OrderConfirm = 1, OrderMessage = '飲料庫存不足' where ID = {actionListView.SelectedItems[i].Tag}";
+                        cmd = new SqlCommand(strSQL, con);
+                        cmd.ExecuteNonQuery();
+                        break;
+                    }
+                    if (Quantity > (int)reader["FeedStock"])
+                    {                        
+                        reader.Close();
+                        strSQL = $"update [Order] set OrderConfirm = 1 , OrderMessage = '配料庫存不足' where ID = {actionListView.SelectedItems[i].Tag}";
+                        cmd = new SqlCommand(strSQL, con);
+                        cmd.ExecuteNonQuery();
+                        break;
+                    }
+                    DrinkStock = (int)reader["DrinkStock"];
+                    FeedStock = (int)reader["FeedStock"];
+                }
+                reader.Close();
+                strSQL = $"update [Order] set OrderConfirm = 1 where ID = {actionListView.SelectedItems[i].Tag}";
+                cmd = new SqlCommand(strSQL, con);
+                cmd.ExecuteNonQuery();
+                strSQL = $"update Drink set Stock = {DrinkStock - Quantity} where DrinkID = {DrinkID}";
+                cmd = new SqlCommand(strSQL, con);
+                cmd.ExecuteNonQuery();
+                strSQL = $"update Feed set Stock = {FeedStock - Quantity} where FeedID = {FeedID}";
+                cmd = new SqlCommand(strSQL, con);
+                cmd.ExecuteNonQuery();
+            }
+            con.Close();
+            readOrder();
+        }
+        public void CancelOrder()
+        {
+            con.Open();
+            for (int i = 0; i < actionListView.SelectedItems.Count; i++)
+            {
+                string strSQL = $"update [Order] set OrderConfirm = 1,OrderMessage = '此訂單被店家取消' where ID = {actionListView.SelectedItems[i].Tag}";                
+                SqlCommand cmd = new SqlCommand(strSQL, con);
+                cmd.ExecuteNonQuery();
+            }
+            con.Close();
+            readOrder();
+        }
     }
 }

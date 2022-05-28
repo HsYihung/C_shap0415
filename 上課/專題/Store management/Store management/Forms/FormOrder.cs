@@ -16,16 +16,41 @@ namespace Store_management.Forms
         {
             InitializeComponent();
         }
-
+        model model;
         private void FormOrder_Load(object sender, EventArgs e)
         {
-            model model = new model();
             model = new model();
             cboxOptions.Items.Add("查看新訂單");
             cboxOptions.Items.Add("查看所有訂單");
             model.actionFrom(cboxOptions, listView1);
             cboxOptions.SelectedIndex = 0;
-            model.readStock();
+            model.readOrder();
+            
+        }
+
+        private void cboxOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cboxOptions.SelectedIndex==0)
+            {
+                btnAccept.Enabled = true;
+                btnCancel.Enabled = true;
+            }
+            else
+            {
+                btnAccept.Enabled = false;
+                btnCancel.Enabled = false;
+            }
+            model.readOrder();
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            model.acceptOrder();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            model.CancelOrder();
         }
     }
 }

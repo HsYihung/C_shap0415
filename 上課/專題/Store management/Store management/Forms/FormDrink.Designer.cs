@@ -36,10 +36,9 @@ namespace Store_management.Forms
             this.label2 = new System.Windows.Forms.Label();
             this.btnSeveModify = new System.Windows.Forms.Button();
             this.btnReModify = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.cboxOptions = new System.Windows.Forms.ComboBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.btnDel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -95,6 +94,7 @@ namespace Store_management.Forms
             // 
             // btnSeveModify
             // 
+            this.btnSeveModify.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSeveModify.Location = new System.Drawing.Point(145, 317);
             this.btnSeveModify.Name = "btnSeveModify";
             this.btnSeveModify.Size = new System.Drawing.Size(63, 23);
@@ -105,6 +105,7 @@ namespace Store_management.Forms
             // 
             // btnReModify
             // 
+            this.btnReModify.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnReModify.Location = new System.Drawing.Point(40, 317);
             this.btnReModify.Name = "btnReModify";
             this.btnReModify.Size = new System.Drawing.Size(63, 23);
@@ -112,27 +113,6 @@ namespace Store_management.Forms
             this.btnReModify.Text = "復原";
             this.btnReModify.UseVisualStyleBackColor = true;
             this.btnReModify.Click += new System.EventHandler(this.btnReModify_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(40, 224);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 21);
-            this.label4.TabIndex = 23;
-            this.label4.Text = "優惠選擇";
-            this.label4.Visible = false;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(40, 248);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(164, 29);
-            this.comboBox2.TabIndex = 22;
-            this.comboBox2.Visible = false;
             // 
             // cboxOptions
             // 
@@ -152,12 +132,25 @@ namespace Store_management.Forms
             this.txtName.Size = new System.Drawing.Size(164, 29);
             this.txtName.TabIndex = 25;
             // 
+            // btnDel
+            // 
+            this.btnDel.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnDel.Location = new System.Drawing.Point(55, 274);
+            this.btnDel.Name = "btnDel";
+            this.btnDel.Size = new System.Drawing.Size(128, 37);
+            this.btnDel.TabIndex = 26;
+            this.btnDel.Text = "下架所選商品";
+            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Visible = false;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
+            // 
             // FormDrink
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.ClientSize = new System.Drawing.Size(548, 352);
+            this.Controls.Add(this.btnDel);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.cboxOptions);
             this.Controls.Add(this.btnSeveModify);
@@ -167,8 +160,6 @@ namespace Store_management.Forms
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox2);
             this.Name = "FormDrink";
             this.Text = "FormDrink";
             this.Load += new System.EventHandler(this.FormDrink_Load);
@@ -186,9 +177,8 @@ namespace Store_management.Forms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSeveModify;
         private System.Windows.Forms.Button btnReModify;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox cboxOptions;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Button btnDel;
     }
 }
