@@ -55,6 +55,7 @@ namespace Store_management.Forms
             // 
             this.listView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.listView1.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(241, 0);
             this.listView1.MultiSelect = false;

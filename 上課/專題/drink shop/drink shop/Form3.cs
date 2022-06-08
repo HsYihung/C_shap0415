@@ -134,5 +134,10 @@ namespace drink_shop
             GlobalVar.orderMath.discountMath();
             顯示總價();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

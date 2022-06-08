@@ -169,7 +169,7 @@ namespace Store_management
             this.Controls.Add(this.panelMenu);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form2";
+            this.Text = "店家商品管理系統";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form2_FormClosing);
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panelMenu.ResumeLayout(false);

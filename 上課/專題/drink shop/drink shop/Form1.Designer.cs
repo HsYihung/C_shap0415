@@ -67,7 +67,6 @@ namespace drink_shop
             this.txtClient.Name = "txtClient";
             this.txtClient.Size = new System.Drawing.Size(186, 29);
             this.txtClient.TabIndex = 2;
-            this.txtClient.Text = "test1@test.com";
             // 
             // txtClientNum
             // 
@@ -78,7 +77,6 @@ namespace drink_shop
             this.txtClientNum.PasswordChar = '*';
             this.txtClientNum.Size = new System.Drawing.Size(186, 29);
             this.txtClientNum.TabIndex = 3;
-            this.txtClientNum.Text = "test1234";
             // 
             // btnConfirm
             // 
@@ -141,6 +139,7 @@ namespace drink_shop
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "飲料店訂購單";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);

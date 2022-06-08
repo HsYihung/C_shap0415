@@ -80,7 +80,6 @@ namespace Store_management
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(217, 33);
             this.txtAccount.TabIndex = 3;
-            this.txtAccount.Text = "test123@123.com";
             // 
             // txtPassword
             // 
@@ -90,7 +89,6 @@ namespace Store_management
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(217, 33);
             this.txtPassword.TabIndex = 4;
-            this.txtPassword.Text = "test1234";
             // 
             // btnExit
             // 
@@ -132,6 +130,7 @@ namespace Store_management
             this.btnNewStore.TabIndex = 8;
             this.btnNewStore.Text = "新店家";
             this.btnNewStore.UseVisualStyleBackColor = true;
+            this.btnNewStore.Visible = false;
             this.btnNewStore.Click += new System.EventHandler(this.btnNewStore_Click);
             // 
             // Form1
@@ -151,7 +150,7 @@ namespace Store_management
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "店家登入";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

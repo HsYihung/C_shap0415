@@ -66,3 +66,4 @@ C:\Users\Student\Desktop\專題\drink shop\drink shop\obj\Debug\drink shop.cspro
 C:\Users\Student\Desktop\專題\drink shop\drink shop\obj\Debug\drink shop.csproj.CoreCompileInputs.cache
 C:\Users\Student\Desktop\專題\drink shop\drink shop\obj\Debug\drink shop.exe
 C:\Users\Student\Desktop\專題\drink shop\drink shop\obj\Debug\drink shop.pdb
+C:\Users\Student\Desktop\專題\drink shop\drink shop\obj\Debug\drink_shop.FormOrder.resources

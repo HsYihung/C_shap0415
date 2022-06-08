@@ -178,6 +178,7 @@ namespace drink_shop
             this.Font = new System.Drawing.Font("微軟正黑體", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "newUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "新增使用者";
             this.Load += new System.EventHandler(this.newUser_Load);
             this.ResumeLayout(false);

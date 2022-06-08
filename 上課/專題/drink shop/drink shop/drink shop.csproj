@@ -66,6 +66,12 @@
     <Compile Include="Form3.Designer.cs">
       <DependentUpon>Form3.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrder.Designer.cs">
+      <DependentUpon>FormOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalVar.cs" />
     <Compile Include="linksql.cs" />
     <Compile Include="ModifyUser.cs">
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form3.resx">
       <DependentUpon>Form3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrder.resx">
+      <DependentUpon>FormOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModifyUser.resx">
       <DependentUpon>ModifyUser.cs</DependentUpon>

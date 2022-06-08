@@ -52,6 +52,7 @@ namespace drink_shop
                         cmd.Parameters.AddWithValue("@phone",txtPhone.Text);
                         int i = cmd.ExecuteNonQuery();
                         MessageBox.Show("新增使用者成功");
+                        this.Close();
                     }
                     else
                     {

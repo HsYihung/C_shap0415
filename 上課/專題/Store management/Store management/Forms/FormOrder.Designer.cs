@@ -59,6 +59,7 @@ namespace Store_management.Forms
             // 
             // listView1
             // 
+            this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(12, 75);
             this.listView1.Name = "listView1";

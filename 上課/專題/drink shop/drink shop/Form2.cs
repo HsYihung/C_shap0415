@@ -184,7 +184,7 @@ namespace drink_shop
                 MessageBox.Show("所選飲料庫存不足");
                 return;
             }
-            if (fPrice==0)
+            if (fPrice!=0)
             {
                 if (quantity > myShop.listFeed[lboxFeed.SelectedIndex].stock)
                 {

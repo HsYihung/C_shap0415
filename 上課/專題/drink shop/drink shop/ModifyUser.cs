@@ -64,8 +64,9 @@ namespace drink_shop
                         cmd.Parameters.AddWithValue("@pass",txtPassWord.Text);
                         cmd.Parameters.AddWithValue("@phone",txtPhone.Text);
                         cmd.Parameters.AddWithValue("@name",txtName.Text);
-                        int j = cmd.ExecuteNonQuery();
-                        Console.WriteLine("" + j);
+                        cmd.ExecuteNonQuery();
+                        MessageBox.Show("修改成功");
+                        this.Close();
                     }
                     else
                     {

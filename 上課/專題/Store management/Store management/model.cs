@@ -63,6 +63,15 @@ namespace Store_management
                 txtAddress.Text = (string)reader["Address"];
             }
             reader.Close();
+            strSQL = $"select ShopID from [Order] where ShopID = {GlobalVar.storeID} and OrderConfirm = 0";
+            cmd = new SqlCommand(strSQL, con);
+            reader = cmd.ExecuteReader();
+            int index = 0;
+            while(reader.Read())
+            {
+                index ++;
+            }
+            strMessage += $"{Environment.NewLine}{Environment.NewLine}目前有 {index} 筆新訂單";
             con.Close();
             return strMessage;
         }
@@ -98,6 +107,7 @@ namespace Store_management
                 actionComboBox = cbox;
             }
         }
+
         public void readStock()
         {
             actionListView.Clear();
@@ -387,7 +397,8 @@ namespace Store_management
                         cmd.Parameters.AddWithValue("@newName",txtName.Text);
                         cmd.Parameters.AddWithValue("@newPrice",txtPrice.Text);
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("新增飲品成功");
+                        txtName.Clear();
+                        txtPrice.Clear();
                         con.Close();
                         readDrink();
                     }
@@ -401,7 +412,16 @@ namespace Store_management
                 else
                 {
                     reader.Close();
+                    strSQL = $"insert into Drink values ({GlobalVar.storeID},@newName,@newPrice,0)";
+                    cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("@newName", txtName.Text);
+                    cmd.Parameters.AddWithValue("@newPrice", txtPrice.Text);
+                    cmd.ExecuteNonQuery();
+                    txtName.Clear();
+                    txtPrice.Clear();
                     con.Close();
+                    readDrink();
+                    
                 }
                 
             }
@@ -421,7 +441,8 @@ namespace Store_management
                         cmd.Parameters.AddWithValue("@newName", txtName.Text);
                         cmd.Parameters.AddWithValue("@newPrice", txtPrice.Text);
                         cmd.ExecuteNonQuery();
-                        MessageBox.Show("新增配料成功");
+                        txtName.Clear();
+                        txtPrice.Clear();
                         con.Close();
                         readDrink();
                     }
@@ -435,7 +456,15 @@ namespace Store_management
                 else
                 {
                     reader.Close();
+                    strSQL = $"insert into Feed values ({GlobalVar.storeID},@newName,@newPrice,0)";
+                    cmd = new SqlCommand(strSQL, con);
+                    cmd.Parameters.AddWithValue("@newName", txtName.Text);
+                    cmd.Parameters.AddWithValue("@newPrice", txtPrice.Text);
+                    cmd.ExecuteNonQuery();
+                    txtName.Clear();
+                    txtPrice.Clear();
                     con.Close();
+                    readDrink();
                 }                
             }
         }
@@ -486,7 +515,7 @@ namespace Store_management
             if(actionComboBox.SelectedIndex == 0)
             {
                 con.Open();
-                string strSQL = $"select ID,(select Name from UserInfo where UserID = od.UserID) as Name,(select DrinkName from Drink where DrinkID = od.DrinkID)as DrinkName,(select FeedName from Feed where FeedID = od.FeedID) as FeedName,ice,surgar,Quantity,((select Price from Drink where DrinkID = od.DrinkID)+(select Price from Feed where FeedID = od.FeedID)*Quantity) as totalPrice,OrderDate from [Order] as od where ShopID = {GlobalVar.storeID} and OrderConfirm =0";
+                string strSQL = $"select ID,(select Name from UserInfo where UserID = od.UserID) as Name,(select DrinkName from Drink where DrinkID = od.DrinkID)as DrinkName,isnull((select FeedName from Feed where FeedID = od.FeedID),'無') as FeedName,ice,surgar,Quantity,((select Price from Drink where DrinkID = od.DrinkID)+isnull((select Price from Feed where FeedID = od.FeedID),0)*Quantity) as totalPrice,OrderDate from [Order] as od where ShopID = {GlobalVar.storeID} and OrderConfirm =0";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while(reader.Read())
@@ -512,7 +541,7 @@ namespace Store_management
             else
             {
                 con.Open();
-                string strSQL = $"select ID,(select Name from UserInfo where UserID = od.UserID) as Name,(select DrinkName from Drink where DrinkID = od.DrinkID)as DrinkName,(select FeedName from Feed where FeedID = od.FeedID) as FeedName,ice,surgar,Quantity,((select Price from Drink where DrinkID = od.DrinkID)+(select Price from Feed where FeedID = od.FeedID)*Quantity) as totalPrice,OrderDate from [Order] as od where ShopID = {GlobalVar.storeID}";
+                string strSQL = $"select ID,(select Name from UserInfo where UserID = od.UserID) as Name,(select DrinkName from Drink where DrinkID = od.DrinkID)as DrinkName,isnull((select FeedName from Feed where FeedID = od.FeedID),'無') as FeedName,ice,surgar,Quantity,((select Price from Drink where DrinkID = od.DrinkID)+isnull((select Price from Feed where FeedID = od.FeedID),0)*Quantity) as totalPrice,OrderDate from [Order] as od where ShopID = {GlobalVar.storeID}";
                 SqlCommand cmd = new SqlCommand(strSQL, con);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
@@ -556,7 +585,7 @@ namespace Store_management
                     Quantity = (int)reader["Quantity"];
                 }
                 reader.Close();
-                strSQL = $"declare @DrinkStock int; declare @FeedStock int;select @DrinkStock = Stock from Drink where DrinkID= {DrinkID};select @FeedStock = Stock from Feed where FeedID= {FeedID}; select @DrinkStock as DrinkStock , @FeedStock as FeedStock;";
+                strSQL = $"declare @DrinkStock int; declare @FeedStock int;select @DrinkStock = Stock from Drink where DrinkID= {DrinkID};select @FeedStock = Stock from Feed where FeedID= {FeedID}; select @DrinkStock as DrinkStock , isnull(@FeedStock,0) as FeedStock;";
                 cmd = new SqlCommand(strSQL, con);
                 reader = cmd.ExecuteReader();
                 if(reader.Read())

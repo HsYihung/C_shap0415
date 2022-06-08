@@ -177,6 +177,7 @@ namespace drink_shop
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ModifyUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "修改使用者資料";
             this.Load += new System.EventHandler(this.ModifyUser_Load);
             this.ResumeLayout(false);
